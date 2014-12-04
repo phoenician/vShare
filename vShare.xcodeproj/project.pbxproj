@@ -13,6 +13,11 @@
 		8CE799361A2FF00F00C58875 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE799351A2FF00F00C58875 /* Images.xcassets */; };
 		8CE799391A2FF00F00C58875 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE799371A2FF00F00C58875 /* LaunchScreen.xib */; };
 		8CE799451A2FF01000C58875 /* vShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799441A2FF01000C58875 /* vShareTests.swift */; };
+		8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */; };
+		8CE799541A2FF22300C58875 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7994F1A2FF22300C58875 /* AddViewController.swift */; };
+		8CE799551A2FF22300C58875 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799501A2FF22300C58875 /* SummaryViewController.swift */; };
+		8CE799561A2FF22300C58875 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799511A2FF22300C58875 /* Event.swift */; };
+		8CE799571A2FF22300C58875 /* Kharcha.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799521A2FF22300C58875 /* Kharcha.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +41,11 @@
 		8CE7993E1A2FF01000C58875 /* vShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE799431A2FF01000C58875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE799441A2FF01000C58875 /* vShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vShareTests.swift; sourceTree = "<group>"; };
+		8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KharchaViewController.swift; sourceTree = "<group>"; };
+		8CE7994F1A2FF22300C58875 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		8CE799501A2FF22300C58875 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
+		8CE799511A2FF22300C58875 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		8CE799521A2FF22300C58875 /* Kharcha.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kharcha.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +87,11 @@
 		8CE7992B1A2FF00F00C58875 /* vShare */ = {
 			isa = PBXGroup;
 			children = (
+				8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */,
+				8CE7994F1A2FF22300C58875 /* AddViewController.swift */,
+				8CE799501A2FF22300C58875 /* SummaryViewController.swift */,
+				8CE799511A2FF22300C58875 /* Event.swift */,
+				8CE799521A2FF22300C58875 /* Kharcha.swift */,
 				8CE7992E1A2FF00F00C58875 /* AppDelegate.swift */,
 				8CE799301A2FF00F00C58875 /* ViewController.swift */,
 				8CE799321A2FF00F00C58875 /* Main.storyboard */,
@@ -212,8 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */,
 				8CE799311A2FF00F00C58875 /* ViewController.swift in Sources */,
+				8CE799541A2FF22300C58875 /* AddViewController.swift in Sources */,
 				8CE7992F1A2FF00F00C58875 /* AppDelegate.swift in Sources */,
+				8CE799571A2FF22300C58875 /* Kharcha.swift in Sources */,
+				8CE799561A2FF22300C58875 /* Event.swift in Sources */,
+				8CE799551A2FF22300C58875 /* SummaryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +425,7 @@
 				8CE7994A1A2FF01000C58875 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8CE7994B1A2FF01000C58875 /* Build configuration list for PBXNativeTarget "vShareTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +434,7 @@
 				8CE7994D1A2FF01000C58875 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  vShare
+//  groupshare1
 //
-//  Created by Sulabh Shukla on 12/3/14.
-//  Copyright (c) 2014 eva. All rights reserved.
+//  Created by Sulabh Shukla on 10/18/14.
+//  Copyright (c) 2014 Sulabh Shukla. All rights reserved.
 //
 
 import UIKit

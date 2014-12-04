@@ -17,8 +17,6 @@ class KharchaViewController: UIViewController, UITableViewDelegate, UITableViewD
     var eventMembers:[NSString] = []
     var kharcha:Kharcha = Kharcha()
     
-    
-    
 
     @IBAction func doneButtonClicked(sender: AnyObject) {
         var amt = (kharchaAmt.text as NSString).floatValue/Float (eventMembers.count)

@@ -9,23 +9,35 @@
 import UIKit
 
 class Event: NSObject {
-    
-    var desc:NSString = ""
-    var members:[NSString] = []
+    var id:NSString?
+    var desc:NSString?
+    var members:[Participant] = []
     var kharchas:[Kharcha] = []
+        
+    func getParticipantIdsArray() -> [NSString]{
+        var memberIds:[NSString] = []
+        for m in members {
+            memberIds.append(m.id!)
+        }
+        return memberIds
+    }
+    
+    func getEventJSONData() -> NSData {
+        var data = getEventAsDict()
+        var err: NSError?
+        var json = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions.PrettyPrinted, error: &err)
+        return json!
+    }
+    
+    func getEventAsDict() -> NSDictionary {
+        let description = self.desc
+        var dict:NSDictionary = ["name":description!, "created":"2014-12-20", "participants":getParticipantIdsArray()]
+        return dict
+    }
     
     func getSummary() -> [NSString:Float]{
         var summary:[NSString:Float] = [NSString:Float]()
-        for member in members {
-            summary[member] = 0.0
-        }
-        for kharch in kharchas  {
-            for member in kharch.members{
-                summary[member] = summary[member]?.advancedBy(kharch.amount)
-            }
-        }
-
         return summary
     }
-   
+    
 }

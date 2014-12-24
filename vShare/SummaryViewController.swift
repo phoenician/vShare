@@ -14,8 +14,10 @@ class SummaryViewController: UIViewController {
     var summary:[NSString:Float] = [NSString:Float]()
     override func viewDidLoad() {
         super.viewDidLoad()
-        heading.text = "Summary for event \(event.desc)"
-        summary = event.getSummary()
+        heading.text = "Summary for event \(selectedEvent?.desc)"
+        if let summ = selectedEvent?.getSummary(){
+            summary = summ
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,15 +26,18 @@ class SummaryViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return event.members.count
+        if let mems = selectedEvent?.members{
+            return mems.count
+        }
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-        var key = event.members[indexPath.row]
-        var amt = summary[key]
-        cell.textLabel.text = "\(key) owes $\(amt!)"
+        //var key = event.members[indexPath.row]
+        //var amt = summary[key]
+        //cell.textLabel.text = "\(key) owes $\(amt!)"
         return cell
     }
     

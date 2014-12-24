@@ -8,31 +8,45 @@
 
 import UIKit
 
-var eventName:NSString = ""
-var friends: [NSString] = []
-var events:[NSString] = []
-var eventsDict = [NSString:[NSString]]()
-var selectedEvent:NSString = "Nothing Selected"
+var events:[Event] = []
+var selectedEvent:Event?
 
-var event:Event = Event()
-
+var newEvent:Event = Event()
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
-    
+
     @IBOutlet weak var eventsTable: UITableView!
-    
     @IBOutlet weak var eventTextField: UITextField!
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
-        eventName = textField.text
-        event.desc = eventName
+        newEvent.desc = textField.text
+        let user:Participant = Participant(id: usrDefaults.objectForKey("userid") as String, name: usrDefaults.objectForKey("name") as String, code: usrDefaults.objectForKey("countrycode") as String, phone: usrDefaults.objectForKey("phone") as String)
+        newEvent.members.append(user)
         textField.resignFirstResponder()
         return true
     }
     
+    func reinitializeView(){
+        events = []
+        eventsTable.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        events = [NSString](eventsDict.keys)
+        reinitializeView()
+        asyncFetchTableData()
+    }
+    
+    func asyncFetchTableData(){
+        ds.getEvents(usrDefaults.objectForKey("userid") as NSString){
+            eventsList in
+            for event in eventsList {
+                events.append(event)
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                self.eventsTable.reloadData()
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -41,24 +55,21 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return eventsDict.count
+        return events.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
-            , reuseIdentifier: "cell")
-        cell.textLabel.text = events[indexPath.row]
+            , reuseIdentifier: "eventcell")
+        var labelText = events[indexPath.row].desc
+        cell.textLabel.text = labelText
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedEvent = events[indexPath.row]
-        self.performSegueWithIdentifier("addKharchaSegue", sender: indexPath)
+        self.performSegueWithIdentifier("showEventView", sender: indexPath)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        events = [NSString](eventsDict.keys)
-        eventsTable.reloadData()
-    }
 }
 

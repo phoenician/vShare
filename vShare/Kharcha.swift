@@ -9,9 +9,32 @@
 import UIKit
 
 class Kharcha: NSObject {
+    var id:NSString?
+    var desc:NSString?
+    var amount:Float?
+    var eventId:NSString?
+    var creator:NSString?
+    var created:NSString?
+    var participants:[Participant] = []
     
-    var desc:NSString = ""
-    var amount:Float = 0.0
-    var members:[NSString] = []
-   
+    func getExpenseJSONData() -> NSData {
+        var data = getExpenseAsDict()
+        var err: NSError?
+        var json = NSJSONSerialization.dataWithJSONObject(data, options: NSJSONWritingOptions.PrettyPrinted, error: &err)
+        return json!
+    }
+    
+    func getExpenseAsDict() -> NSDictionary {
+        var dict:NSDictionary = ["description":self.desc!, "amount": self.amount!, "event":self.eventId!, "creator":self.creator!, "created":"2014-12-20", "participants":getParticipantIdsArray()]
+        return dict
+    }
+    
+    func getParticipantIdsArray() -> [NSString]{
+        var memberIds:[NSString] = []
+        for m in participants {
+            memberIds.append(m.id!)
+        }
+        return memberIds
+    }
+    
 }

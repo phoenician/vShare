@@ -10,51 +10,37 @@ import UIKit
 import AddressBookUI
 
 
-class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ABPeoplePickerNavigationControllerDelegate {
-    
-    @IBOutlet weak var eventNameLabel: UILabel!
+class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var friendName: UITextField!
-    
     @IBOutlet weak var friendsTable: UITableView!
     
-    let personPicker: ABPeoplePickerNavigationController
-    
-    @IBAction func addMembers(sender: AnyObject) {
-        self.presentViewController(personPicker, animated: true, completion: nil)
-    }
-    
     required init(coder aDecoder: NSCoder) {
-        personPicker = ABPeoplePickerNavigationController()
         super.init(coder: aDecoder)
-        personPicker.peoplePickerDelegate = self
     }
     
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!) {
-        if peoplePicker != personPicker {
-            return
+    @IBAction func donePressed(sender: AnyObject) {
+        println("Going to save event \(newEvent.desc) to Mongo")
+        //save event to DB
+        asyncSave(newEvent)
+    }
+    
+    func asyncSave(event:Event){
+        ds.saveEvent(event){
+            eventid in
+            println("******* Event id is \(eventid) *******")
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("showListOfEvents", sender: self)
+            }
         }
-        
-        //let phones:ABMultiValueRef = ABRecordCopyValue(person, kABPersonPhoneProperty).takeRetainedValue()
-        let fname:ABMultiValueRef = ABRecordCopyValue(person, kABPersonFirstNameProperty).takeRetainedValue()
-        
-        friends.append(fname as NSString)
-        friendsTable.reloadData()
-        /**let count = ABMultiValueGetCount(phones)
-        for i in 0..<count{
-            let phone = ABMultiValueCopyValueAtIndex(phones, i).takeRetainedValue() as String
-            println(phone)
-        }**/
     }
     
-    @IBAction func doneButtonPressed(sender: AnyObject) {
-        eventsDict[eventName] = friends
-        event.members = friends
-        friends = []
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        eventNameLabel.text = eventName
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        friendsTable.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,13 +48,13 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return friends.count
+        return newEvent.members.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-        cell.textLabel.text = friends[indexPath.row]
+        cell.textLabel.text = newEvent.members[indexPath.row].name
         return cell
     }
     

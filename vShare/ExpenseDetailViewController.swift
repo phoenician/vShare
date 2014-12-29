@@ -11,11 +11,15 @@ import UIKit
 class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var descriptionLabel: UILabel!
+    var userid = usrDefaults.objectForKey("userid") as NSString
+    var involved:[Participant] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = selectedExpense.desc
         // Do any additional setup after loading the view.
+        involved.append(ps.getParticipantById(userid)!)
+        involved+=selectedExpense.participants
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,14 +28,14 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return selectedExpense.participants.count
+        return involved.count
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-        cell.textLabel.text = selectedExpense.participants[indexPath.row].name
+        cell.textLabel.text = involved[indexPath.row].name
         return cell
     }
 }

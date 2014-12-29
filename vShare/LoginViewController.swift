@@ -30,7 +30,10 @@ class LoginViewController: UIViewController {
             usrDefaults.setObject(code, forKey: "countrycode")
             usrDefaults.setObject(phone, forKey: "phone")
             asyncSave(name, phone: phone, code: code, callback: {
-                self.performSegueWithIdentifier("showEventsViewSegue", sender: self)
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.performSegueWithIdentifier("showEventsViewSegue", sender: self)
+                    ps.userdb.append(Participant(id:usrDefaults.objectForKey("userid") as NSString, name: name, code: code, phone: phone))
+                }
             })
         }else{
             tellUsLabel.text = "Please fill out all text fields ..."

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 var events:[Event] = []
 var selectedEvent:Event?
@@ -35,6 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         super.viewDidLoad()
         reinitializeView()
         asyncFetchTableData()
+        
     }
     
     func asyncFetchTableData(){

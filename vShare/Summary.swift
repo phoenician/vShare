@@ -9,5 +9,10 @@
 import UIKit
 
 class Summary: NSObject {
+    var id:NSString?
+    var balance:Float?
+    var participantId:NSString?
+    var eventId:NSString?
+    var updated:NSString?
    
 }

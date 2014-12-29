@@ -10,13 +10,21 @@ import UIKit
 
 class SummaryViewController: UIViewController {
 
-    @IBOutlet weak var heading: UILabel!
-    var summary:[NSString:Float] = [NSString:Float]()
+    @IBOutlet weak var summaryTable: UITableView!
+    var summaries:[Summary] = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        heading.text = "Summary for event \(selectedEvent?.desc)"
-        if let summ = selectedEvent?.getSummary(){
-            summary = summ
+        if let id = selectedEvent?.id {
+            
+            ds.getSummaries(id, callback: {
+                summArray in
+                self.summaries = summArray
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.summaryTable.reloadData()
+                }
+            })
         }
     }
 
@@ -26,18 +34,31 @@ class SummaryViewController: UIViewController {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        if let mems = selectedEvent?.members{
-            return mems.count
-        }
-        return 0
+        return summaries.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-        //var key = event.members[indexPath.row]
-        //var amt = summary[key]
-        //cell.textLabel.text = "\(key) owes $\(amt!)"
+        var summary = summaries[indexPath.row]
+        if let participantId = summary.participantId{
+            if let participant = ps.getParticipantById(participantId){
+                if let name = participant.name{
+                    if let amt = summary.balance{
+                        if amt == 0 {
+                            cell.textLabel.text = "\(name) owes nothing"
+                        }
+                        if amt < 0 {
+                            cell.textLabel.text = "\(name) will receive $\(amt*(-1))"
+                        }
+                        else{
+                            cell.textLabel.text = "\(name) owes $\(amt)"
+                        }
+                    }
+                    
+                }
+            }
+        }
         return cell
     }
     

@@ -13,6 +13,7 @@ class Kharcha: NSObject {
     var desc:NSString?
     var amount:Float?
     var eventId:NSString?
+    var spenderId:NSString?
     var creator:NSString?
     var created:NSString?
     var participants:[Participant] = []
@@ -25,7 +26,7 @@ class Kharcha: NSObject {
     }
     
     func getExpenseAsDict() -> NSDictionary {
-        var dict:NSDictionary = ["description":self.desc!, "amount": self.amount!, "event":self.eventId!, "creator":self.creator!, "created":"2014-12-20", "participants":getParticipantIdsArray()]
+        var dict:NSDictionary = ["description":self.desc!, "amount": self.amount!, "event":self.eventId!, "spender":self.spenderId!, "creator":self.creator!, "created":"2014-12-20", "participants":getParticipantIdsArray()]
         return dict
     }
     

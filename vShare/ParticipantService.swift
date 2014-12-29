@@ -14,10 +14,9 @@ class ParticipantService: NSObject {
     
     override init() {
         var p1:Participant = Participant(id:"5490bf496ee729f2944973d1", name: "Rolee Shukla", code: "001", phone: "4342499128")
-        var p2:Participant = Participant(id:"5495ee3208a489dfdf4d6213", name: "Sulabh Shukla", code: "001", phone: "4342429097")
-        var p3:Participant = Participant(id:"5490bf826ee729f2944973d3", name: "Ramesh Chandra Shukla", code: "91", phone: "4342429097")
+        var p2:Participant = Participant(id:"5490bf826ee729f2944973d3", name: "Ramesh Chandra Shukla", code: "91", phone: "4342429097")
         
-        userdb = [p1, p2, p3]
+        userdb = [p1, p2]
     }
     
     func getMatchingParticipants(p:Participant) -> [Participant]

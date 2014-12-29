@@ -97,7 +97,7 @@ class DataService: NSObject {
                     if let id = jsonArr[i]["_id"] as? NSString{
                         kharcha.id = id
                     }
-                    if let eventid = jsonArr[i]["eventid"] as? NSString{
+                    if let eventid = jsonArr[i]["event"] as? NSString{
                         kharcha.eventId = eventid
                     }
                     if let participantIds:[NSString] = jsonArr[i]["participants"] as? [NSString] {
@@ -116,6 +116,45 @@ class DataService: NSObject {
                     kharchas.append(kharcha)
                 }
                 callback(kharchas)
+            }
+        })
+        task.resume()
+    }
+    
+    func getSummaries(eventid:NSString, callback:([Summary]) -> ()){
+        var summaries:[Summary] = []
+        let urlPath = "http://localhost:3000/api/summary/\(eventid)"
+        let url = NSURL(string: urlPath)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if error != nil {
+                println(error)
+            } else {
+                var err: NSError?
+                var jsonArr = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSArray
+                if (err != nil) {
+                    println("JSON Error \(err!.localizedDescription)")
+                }
+                for i in 0..<jsonArr.count {
+                    var summary:Summary = Summary()
+                    if let id = jsonArr[i]["_id"] as? NSString{
+                        summary.id = id
+                    }
+                    if let eventid = jsonArr[i]["event"] as? NSString{
+                        summary.eventId = eventid
+                    }
+                    if let participantid = jsonArr[i]["participant"] as? NSString{
+                        summary.participantId = participantid
+                    }
+                    if let updated = jsonArr[i]["updated"] as? NSString{
+                        summary.updated = updated
+                    }
+                    if let balance = jsonArr[i]["balance"] as? Float{
+                        summary.balance = balance
+                    }
+                    summaries.append(summary)
+                }
+                callback(summaries)
             }
         })
         task.resume()

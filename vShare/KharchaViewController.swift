@@ -28,7 +28,7 @@ class KharchaViewController: UIViewController, UITableViewDelegate, UITableViewD
             p in
             p.id != self.userid
         })
-        kharcha.amount = (kharchaAmt.text as NSString).floatValue/Float (kharcha.participants.count)
+        kharcha.amount = (kharchaAmt.text as NSString).floatValue/Float (kharcha.participants.count + 1)
         
         asyncSave(kharcha)
     }
@@ -39,7 +39,8 @@ class KharchaViewController: UIViewController, UITableViewDelegate, UITableViewD
             self.kharcha.id = id
             selectedEvent?.kharchas.append(self.kharcha)
             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("showExpFromAddExp", sender: self)
+                //self.performSegueWithIdentifier("showExpFromAddExp", sender: self)
+                self.performSegueWithIdentifier("selectSpendersFromAddExpense", sender: self)
             }
         }
     }
@@ -55,7 +56,7 @@ class KharchaViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-            cell.textLabel.text = selectedEvent!.members[indexPath.row].name
+            cell.textLabel?.text = selectedEvent!.members[indexPath.row].name
         return cell
     }
     

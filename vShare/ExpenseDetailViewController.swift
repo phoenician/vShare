@@ -35,7 +35,7 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-        cell.textLabel.text = involved[indexPath.row].name
+        cell.textLabel?.text = involved[indexPath.row].name
         return cell
     }
 }

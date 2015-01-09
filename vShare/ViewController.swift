@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "eventcell")
         var labelText = events[indexPath.row].desc
-        cell.textLabel.text = labelText
+        cell.textLabel?.text = labelText
         return cell
     }
     

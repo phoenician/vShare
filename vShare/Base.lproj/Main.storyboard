@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fpQ-dA-gOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fpQ-dA-gOf">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -282,11 +282,62 @@
                         <outlet property="kharchaDesc" destination="ypC-lI-YER" id="2jr-X5-pKs"/>
                         <outlet property="membersTable" destination="eKJ-cj-dcv" id="pbc-ei-G7A"/>
                         <segue destination="Zlg-up-kTe" kind="show" identifier="showExpFromAddExp" id="izW-Ff-a7i"/>
+                        <segue destination="9lM-C0-pr1" kind="show" identifier="selectSpendersFromAddExpense" id="9xT-0X-dyO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTc-Xi-h5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="625" y="-643"/>
+        </scene>
+        <!--Select Spenders View Controller-->
+        <scene sceneID="yvO-Cc-U3u">
+            <objects>
+                <viewController id="9lM-C0-pr1" customClass="SelectSpendersViewController" customModule="vShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="67F-Gd-V47"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Yi-na-LBC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xbd-07-R8f">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QEk-di-pyp">
+                                <rect key="frame" x="167" y="46" width="267" height="29"/>
+                                <segments>
+                                    <segment title="I Spent"/>
+                                    <segment title="Other People Spent"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selected:" destination="9lM-C0-pr1" eventType="valueChanged" id="Js4-tQ-E3A"/>
+                                </connections>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nYb-5Y-azk">
+                                <rect key="frame" x="0.0" y="118" width="600" height="482"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9lM-C0-pr1" id="e0k-M0-5Oe"/>
+                                    <outlet property="delegate" destination="9lM-C0-pr1" id="ebM-XF-dJ0"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="nYb-5Y-azk" firstAttribute="leading" secondItem="Xbd-07-R8f" secondAttribute="leading" id="AQZ-0N-W25"/>
+                            <constraint firstItem="nYb-5Y-azk" firstAttribute="top" secondItem="Xbd-07-R8f" secondAttribute="top" constant="118" id="Rkd-6i-5xu"/>
+                            <constraint firstAttribute="bottom" secondItem="nYb-5Y-azk" secondAttribute="bottom" id="XUr-9O-MZV"/>
+                            <constraint firstItem="QEk-di-pyp" firstAttribute="top" secondItem="67F-Gd-V47" secondAttribute="bottom" constant="26" id="nwT-Mf-LTa"/>
+                            <constraint firstAttribute="trailing" secondItem="nYb-5Y-azk" secondAttribute="trailing" id="pjl-5W-iMg"/>
+                            <constraint firstAttribute="centerX" secondItem="QEk-di-pyp" secondAttribute="centerX" constant="-0.5" id="uYG-Ik-rxz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selector" destination="QEk-di-pyp" id="0H9-IW-B7K"/>
+                        <outlet property="spendersTable" destination="nYb-5Y-azk" id="9wO-8x-F3Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iSL-av-i1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1331" y="-643"/>
         </scene>
         <!--Title-->
         <scene sceneID="WX1-Jk-f3P">
@@ -462,7 +513,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoP-H3-zYT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1303" y="-643"/>
+            <point key="canvasLocation" x="2070" y="-643"/>
         </scene>
         <!--Member Search Controller-->
         <scene sceneID="qPG-an-0Id">
@@ -669,9 +720,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dMb-XE-SnS"/>
-        <segue reference="z6M-pk-kFV"/>
-        <segue reference="Aos-RL-hDp"/>
+        <segue reference="RDJ-x1-bWy"/>
         <segue reference="ZR9-Jv-3k4"/>
+        <segue reference="izW-Ff-a7i"/>
+        <segue reference="rsV-Fq-XWn"/>
     </inferredMetricsTieBreakers>
 </document>

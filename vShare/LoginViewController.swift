@@ -21,7 +21,6 @@ class LoginViewController: UIViewController {
 
     @IBAction func doneButtonClicked(sender: AnyObject) {
         //call asynch function that saves and calls another async function that segues
-        
         if !(nameField.text.isEmpty || countryField.text.isEmpty || phoneField.text.isEmpty){
             var name = nameField.text
             var phone = phoneField.text

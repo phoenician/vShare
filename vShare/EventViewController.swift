@@ -48,7 +48,7 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "eventcell")
-        cell.textLabel.text = expenses[indexPath.row].desc
+        cell.textLabel?.text = expenses[indexPath.row].desc
         return cell
     }
     

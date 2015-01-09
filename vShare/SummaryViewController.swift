@@ -46,13 +46,13 @@ class SummaryViewController: UIViewController {
                 if let name = participant.name{
                     if let amt = summary.balance{
                         if amt == 0 {
-                            cell.textLabel.text = "\(name) owes nothing"
+                            cell.textLabel?.text = "\(name) owes nothing"
                         }
                         if amt < 0 {
-                            cell.textLabel.text = "\(name) will receive $\(amt*(-1))"
+                            cell.textLabel?.text = "\(name) will receive $\(amt*(-1))"
                         }
                         else{
-                            cell.textLabel.text = "\(name) owes $\(amt)"
+                            cell.textLabel?.text = "\(name) owes $\(amt)"
                         }
                     }
                     

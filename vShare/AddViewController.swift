@@ -54,7 +54,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
-        cell.textLabel.text = newEvent.members[indexPath.row].name
+        cell.textLabel?.text = newEvent.members[indexPath.row].name
         return cell
     }
     

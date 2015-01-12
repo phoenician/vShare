@@ -14,6 +14,7 @@ class Kharcha: NSObject {
     var amount:Float?
     var eventId:NSString?
     var spenderId:NSString?
+    var expenseDict:[NSString:Float]?//key - spenderId. value - amount spent
     var creator:NSString?
     var created:NSString?
     var participants:[Participant] = []

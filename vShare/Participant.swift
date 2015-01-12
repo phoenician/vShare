@@ -10,7 +10,7 @@ import UIKit
 
 var ps:ParticipantService = ParticipantService()
 
-class Participant: NSObject {
+class Participant: NSObject, Equatable {
     var id:NSString?
     var name:NSString?
     var countrycode:NSString?
@@ -38,6 +38,11 @@ class Participant: NSObject {
         self.countrycode = code
         self.id = id
     }
-    
-    
+}
+
+func ==(lhs: Participant, rhs: Participant) -> Bool {
+    if lhs.id == rhs.id {
+        return true
+    }
+    return false
 }

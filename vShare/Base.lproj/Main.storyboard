@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fpQ-dA-gOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fpQ-dA-gOf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -302,7 +302,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="QEk-di-pyp">
-                                <rect key="frame" x="167" y="46" width="267" height="29"/>
+                                <rect key="frame" x="167" y="35" width="267" height="29"/>
                                 <segments>
                                     <segment title="I Spent"/>
                                     <segment title="Other People Spent"/>
@@ -314,23 +314,85 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="nYb-5Y-azk">
                                 <rect key="frame" x="0.0" y="118" width="600" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectspendercell" id="f3y-Zr-Vlg" customClass="LabelCheckboxTableViewCell" customModule="vShare" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3y-Zr-Vlg" id="0A1-Na-nDP">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMS-Wa-IbJ">
+                                                    <rect key="frame" x="10" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GBq-Zd-qv1" customClass="CheckBox" customModule="vShare" customModuleProvider="target">
+                                                    <rect key="frame" x="529" y="7" width="58" height="30"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount Paid" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwJ-Oo-q7d">
+                                                    <rect key="frame" x="251" y="7" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(phone number)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHr-hh-I7h">
+                                                    <rect key="frame" x="10" y="20" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="centerX" secondItem="bwJ-Oo-q7d" secondAttribute="centerX" constant="-0.5" id="3WR-Sv-cZs"/>
+                                                <constraint firstItem="GBq-Zd-qv1" firstAttribute="top" secondItem="0A1-Na-nDP" secondAttribute="top" constant="7" id="6ZJ-aJ-Kzr"/>
+                                                <constraint firstItem="dHr-hh-I7h" firstAttribute="leading" secondItem="0A1-Na-nDP" secondAttribute="leading" constant="10" id="8gT-ce-P1F"/>
+                                                <constraint firstItem="bwJ-Oo-q7d" firstAttribute="top" secondItem="0A1-Na-nDP" secondAttribute="topMargin" constant="-1" id="J3h-0S-J63"/>
+                                                <constraint firstItem="oMS-Wa-IbJ" firstAttribute="top" secondItem="0A1-Na-nDP" secondAttribute="top" constant="4" id="Xd8-BF-Tjj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="GBq-Zd-qv1" secondAttribute="trailing" constant="5" id="hkp-7Q-YTy"/>
+                                                <constraint firstItem="dHr-hh-I7h" firstAttribute="top" secondItem="0A1-Na-nDP" secondAttribute="top" constant="20" id="hzY-DQ-HgD"/>
+                                                <constraint firstItem="oMS-Wa-IbJ" firstAttribute="leading" secondItem="0A1-Na-nDP" secondAttribute="leading" constant="10" id="sem-r7-75c"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountTextField" destination="bwJ-Oo-q7d" id="fhQ-zx-lPg"/>
+                                            <outlet property="checkBox" destination="GBq-Zd-qv1" id="eGL-dH-5d3"/>
+                                            <outlet property="nameLabel" destination="oMS-Wa-IbJ" id="Qv2-R6-9XB"/>
+                                            <outlet property="phoneLabel" destination="dHr-hh-I7h" id="RXS-mW-xcd"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="9lM-C0-pr1" id="e0k-M0-5Oe"/>
                                     <outlet property="delegate" destination="9lM-C0-pr1" id="ebM-XF-dJ0"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6IK-0S-z1b">
+                                <rect key="frame" x="260" y="67" width="80" height="30"/>
+                                <state key="normal" title="Next Action">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="nxtActionClicked:" destination="9lM-C0-pr1" eventType="touchUpInside" id="JhO-DH-kuc"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="6IK-0S-z1b" firstAttribute="top" secondItem="QEk-di-pyp" secondAttribute="bottom" constant="4" id="2kN-q2-gw2"/>
                             <constraint firstItem="nYb-5Y-azk" firstAttribute="leading" secondItem="Xbd-07-R8f" secondAttribute="leading" id="AQZ-0N-W25"/>
+                            <constraint firstAttribute="centerX" secondItem="QEk-di-pyp" secondAttribute="centerX" constant="-0.5" id="NhU-76-s5j"/>
                             <constraint firstItem="nYb-5Y-azk" firstAttribute="top" secondItem="Xbd-07-R8f" secondAttribute="top" constant="118" id="Rkd-6i-5xu"/>
                             <constraint firstAttribute="bottom" secondItem="nYb-5Y-azk" secondAttribute="bottom" id="XUr-9O-MZV"/>
-                            <constraint firstItem="QEk-di-pyp" firstAttribute="top" secondItem="67F-Gd-V47" secondAttribute="bottom" constant="26" id="nwT-Mf-LTa"/>
+                            <constraint firstItem="QEk-di-pyp" firstAttribute="top" secondItem="67F-Gd-V47" secondAttribute="bottom" constant="15" id="Y4v-QZ-Z31"/>
                             <constraint firstAttribute="trailing" secondItem="nYb-5Y-azk" secondAttribute="trailing" id="pjl-5W-iMg"/>
-                            <constraint firstAttribute="centerX" secondItem="QEk-di-pyp" secondAttribute="centerX" constant="-0.5" id="uYG-Ik-rxz"/>
+                            <constraint firstAttribute="centerX" secondItem="6IK-0S-z1b" secondAttribute="centerX" id="yEd-OZ-o2R"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nextActionButton" destination="6IK-0S-z1b" id="DkB-R6-5MQ"/>
                         <outlet property="selector" destination="QEk-di-pyp" id="0H9-IW-B7K"/>
                         <outlet property="spendersTable" destination="nYb-5Y-azk" id="9wO-8x-F3Y"/>
                     </connections>
@@ -720,9 +782,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="yks-Om-QZs"/>
         <segue reference="RDJ-x1-bWy"/>
-        <segue reference="ZR9-Jv-3k4"/>
-        <segue reference="izW-Ff-a7i"/>
-        <segue reference="rsV-Fq-XWn"/>
+        <segue reference="rNr-W3-TjP"/>
+        <segue reference="dMb-XE-SnS"/>
     </inferredMetricsTieBreakers>
 </document>

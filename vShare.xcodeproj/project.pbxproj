@@ -31,6 +31,11 @@
 		8CE7995B1A37D1D800C58875 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7995A1A37D1D800C58875 /* LoginViewController.swift */; };
 		8CE9A71B1A38900300755105 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9A71A1A38900300755105 /* DataService.swift */; };
 		8CE9A71D1A3B56C700755105 /* MemberSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */; };
+		F712AB481A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */; };
+		F77F06871A609E4E00F454D5 /* SpendersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */; };
+		F77F06891A60AF9300F454D5 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F06881A60AF9300F454D5 /* CheckBox.swift */; };
+		F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */; };
+		F77F068D1A61F9D100F454D5 /* CheckBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +77,11 @@
 		8CE7995A1A37D1D800C58875 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8CE9A71A1A38900300755105 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSearchController.swift; sourceTree = "<group>"; };
+		F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCheckboxTableVIewCellDelegate.swift; sourceTree = "<group>"; };
+		F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendersTableViewCell.swift; sourceTree = "<group>"; };
+		F77F06881A60AF9300F454D5 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
+		F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCheckboxTableViewCell.swift; sourceTree = "<group>"; };
+		F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,11 @@
 				8CE7994F1A2FF22300C58875 /* AddViewController.swift */,
 				8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */,
 				8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */,
+				F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */,
+				F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */,
+				F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */,
+				F77F06881A60AF9300F454D5 /* CheckBox.swift */,
+				F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */,
 				8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */,
 				8C3F2C3F1A54DD7D005E7C9B /* CreateExpenseViewController.swift */,
 				8C3F2C411A54DD97005E7C9B /* SelectSharersViewController.swift */,
@@ -268,6 +283,9 @@
 			files = (
 				8C3F2C441A54DDA6005E7C9B /* SelectSpendersViewController.swift in Sources */,
 				8CE7995B1A37D1D800C58875 /* LoginViewController.swift in Sources */,
+				F77F06871A609E4E00F454D5 /* SpendersTableViewCell.swift in Sources */,
+				F712AB481A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift in Sources */,
+				F77F068D1A61F9D100F454D5 /* CheckBoxDelegate.swift in Sources */,
 				8C30A41E1A3F86A600F55281 /* MembersTableViewCell.swift in Sources */,
 				8CC613771A4AA03800504762 /* ExpenseDetailViewController.swift in Sources */,
 				8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */,
@@ -275,10 +293,12 @@
 				8CE799541A2FF22300C58875 /* AddViewController.swift in Sources */,
 				8C118DA71A49B80C0055C580 /* EventViewController.swift in Sources */,
 				8C30A41A1A3C162A00F55281 /* Participant.swift in Sources */,
+				F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */,
 				8CE799591A31262F00C58875 /* SwiftyJSON.swift in Sources */,
 				8CE7992F1A2FF00F00C58875 /* AppDelegate.swift in Sources */,
 				8CE799571A2FF22300C58875 /* Kharcha.swift in Sources */,
 				8CC613791A51247400504762 /* Summary.swift in Sources */,
+				F77F06891A60AF9300F454D5 /* CheckBox.swift in Sources */,
 				8C3F2C421A54DD97005E7C9B /* SelectSharersViewController.swift in Sources */,
 				8C30A4181A3C156800F55281 /* ParticipantService.swift in Sources */,
 				8CE799561A2FF22300C58875 /* Event.swift in Sources */,

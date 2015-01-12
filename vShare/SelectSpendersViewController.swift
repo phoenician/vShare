@@ -8,6 +8,8 @@
 
 import UIKit
 
+var spenders:[Participant] = []
+
 class SelectSpendersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LabelCheckboxTableViewCellDelegate {
 
     @IBOutlet weak var selector: UISegmentedControl!
@@ -15,7 +17,6 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var nextActionButton: UIButton!
 
     var all:[Participant] = selectedEvent!.members
-    var spenders:[Participant] = []
     var tags:[NSNumber] = []
     
     @IBAction func selected(sender: AnyObject) {
@@ -77,9 +78,6 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
             var spender:Participant = all[tag as Int]
             spenders.append(spender)
         }
-        println("and the spenders are ---")
-        for p in spenders{
-            println(p.name)
-        }
+        self.performSegueWithIdentifier("fromSpendersToSharers", sender: self)
     }
 }

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8C118DA71A49B80C0055C580 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C118DA61A49B80C0055C580 /* EventViewController.swift */; };
+		8C1E30D41A65D4BC00814E34 /* EqualSharingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */; };
+		8C1E30D61A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */; };
 		8C30A4181A3C156800F55281 /* ParticipantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C30A4171A3C156700F55281 /* ParticipantService.swift */; };
 		8C30A41A1A3C162A00F55281 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C30A4191A3C162A00F55281 /* Participant.swift */; };
 		8C30A41E1A3F86A600F55281 /* MembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */; };
@@ -50,6 +52,8 @@
 
 /* Begin PBXFileReference section */
 		8C118DA61A49B80C0055C580 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSharingTableViewCell.swift; sourceTree = "<group>"; };
+		8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSharingTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		8C30A4171A3C156700F55281 /* ParticipantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantService.swift; sourceTree = "<group>"; };
 		8C30A4191A3C162A00F55281 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,6 +138,8 @@
 				8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */,
 				F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */,
 				F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */,
+				8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */,
+				8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */,
 				F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */,
 				F77F06881A60AF9300F454D5 /* CheckBox.swift */,
 				F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */,
@@ -290,8 +296,10 @@
 				8CC613771A4AA03800504762 /* ExpenseDetailViewController.swift in Sources */,
 				8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */,
 				8CE799311A2FF00F00C58875 /* ViewController.swift in Sources */,
+				8C1E30D61A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift in Sources */,
 				8CE799541A2FF22300C58875 /* AddViewController.swift in Sources */,
 				8C118DA71A49B80C0055C580 /* EventViewController.swift in Sources */,
+				8C1E30D41A65D4BC00814E34 /* EqualSharingTableViewCell.swift in Sources */,
 				8C30A41A1A3C162A00F55281 /* Participant.swift in Sources */,
 				F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */,
 				8CE799591A31262F00C58875 /* SwiftyJSON.swift in Sources */,

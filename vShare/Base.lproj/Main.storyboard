@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fpQ-dA-gOf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="fpQ-dA-gOf">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -360,6 +360,111 @@
                                             <outlet property="checkbox" destination="Z5V-bs-jQz" id="yAF-7V-yZn"/>
                                             <outlet property="nameLabel" destination="ahB-VZ-c89" id="dUR-jY-Hle"/>
                                             <outlet property="phoneLabel" destination="5LH-Ld-LSD" id="9uA-L4-sZi"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectcustomsharercell" id="qdz-lq-L17" customClass="LabelCheckboxTableViewCell" customModule="vShare" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qdz-lq-L17" id="bVg-wA-FVj">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEE-CH-N4X">
+                                                    <rect key="frame" x="10" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEq-PF-4yY" customClass="CheckBox" customModule="vShare" customModuleProvider="target">
+                                                    <rect key="frame" x="529" y="7" width="58" height="30"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount Shared" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HUr-MW-F4v">
+                                                    <rect key="frame" x="251" y="7" width="100" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(phone number)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZZ-u6-sTA">
+                                                    <rect key="frame" x="10" y="20" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="uEE-CH-N4X" firstAttribute="leading" secondItem="bVg-wA-FVj" secondAttribute="leading" constant="10" id="1bw-dE-dMv"/>
+                                                <constraint firstItem="yZZ-u6-sTA" firstAttribute="leading" secondItem="bVg-wA-FVj" secondAttribute="leading" constant="10" id="6I1-x3-9fr"/>
+                                                <constraint firstAttribute="centerX" secondItem="HUr-MW-F4v" secondAttribute="centerX" constant="-0.5" id="LFA-ED-9GG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="iEq-PF-4yY" secondAttribute="trailing" constant="5" id="P86-zD-Beu"/>
+                                                <constraint firstItem="uEE-CH-N4X" firstAttribute="top" secondItem="bVg-wA-FVj" secondAttribute="top" constant="4" id="Qw7-HS-ZhG"/>
+                                                <constraint firstItem="HUr-MW-F4v" firstAttribute="top" secondItem="bVg-wA-FVj" secondAttribute="topMargin" constant="-1" id="WLR-Wa-1UO"/>
+                                                <constraint firstItem="iEq-PF-4yY" firstAttribute="top" secondItem="bVg-wA-FVj" secondAttribute="top" constant="7" id="WYf-Uy-oxG"/>
+                                                <constraint firstItem="yZZ-u6-sTA" firstAttribute="top" secondItem="bVg-wA-FVj" secondAttribute="top" constant="20" id="emb-ha-LPP"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountTextField" destination="HUr-MW-F4v" id="bIf-C3-aF3"/>
+                                            <outlet property="checkBox" destination="iEq-PF-4yY" id="Vsu-yQ-7gn"/>
+                                            <outlet property="nameLabel" destination="uEE-CH-N4X" id="NEE-Id-if0"/>
+                                            <outlet property="phoneLabel" destination="yZZ-u6-sTA" id="Sg2-Xj-8y0"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectweightedsharercell" id="CsM-fj-72V" customClass="WeightedSharingTableViewCell" customModule="vShare" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CsM-fj-72V" id="RVX-yz-UI3">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P6C-Xg-jNe">
+                                                    <rect key="frame" x="10" y="4" width="120" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HXu-qk-HR5" customClass="CheckBox" customModule="vShare" customModuleProvider="target">
+                                                    <rect key="frame" x="529" y="7" width="58" height="30"/>
+                                                    <state key="normal">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(phone number)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iah-io-sAs">
+                                                    <rect key="frame" x="10" y="20" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="sef-XN-Iy7">
+                                                    <rect key="frame" x="415" y="7" width="94" height="29"/>
+                                                    <connections>
+                                                        <action selector="stepperValueChanged:" destination="CsM-fj-72V" eventType="valueChanged" id="k0R-Vv-QEa"/>
+                                                    </connections>
+                                                </stepper>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VWK-iJ-18L">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="HXu-qk-HR5" secondAttribute="trailing" constant="5" id="3IQ-ha-o4a"/>
+                                                <constraint firstItem="sef-XN-Iy7" firstAttribute="leading" secondItem="VWK-iJ-18L" secondAttribute="trailing" constant="5" id="LnY-Fh-S0O"/>
+                                                <constraint firstItem="HXu-qk-HR5" firstAttribute="top" secondItem="RVX-yz-UI3" secondAttribute="top" constant="7" id="d6i-ai-abU"/>
+                                                <constraint firstItem="iah-io-sAs" firstAttribute="leading" secondItem="RVX-yz-UI3" secondAttribute="leading" constant="10" id="dJK-pD-tFC"/>
+                                                <constraint firstItem="sef-XN-Iy7" firstAttribute="top" secondItem="RVX-yz-UI3" secondAttribute="top" constant="7" id="e33-Y2-GGz"/>
+                                                <constraint firstItem="P6C-Xg-jNe" firstAttribute="leading" secondItem="RVX-yz-UI3" secondAttribute="leading" constant="10" id="kNO-Np-c3C"/>
+                                                <constraint firstItem="VWK-iJ-18L" firstAttribute="top" secondItem="RVX-yz-UI3" secondAttribute="top" constant="11" id="mKj-5T-bSb"/>
+                                                <constraint firstItem="P6C-Xg-jNe" firstAttribute="top" secondItem="RVX-yz-UI3" secondAttribute="top" constant="4" id="mRW-ha-hqU"/>
+                                                <constraint firstItem="iah-io-sAs" firstAttribute="top" secondItem="RVX-yz-UI3" secondAttribute="top" constant="20" id="zaT-kQ-9UF"/>
+                                                <constraint firstItem="HXu-qk-HR5" firstAttribute="leading" secondItem="sef-XN-Iy7" secondAttribute="trailing" constant="20" id="znJ-tj-D3r"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="HXu-qk-HR5" id="4p8-8v-rnn"/>
+                                            <outlet property="countLabel" destination="VWK-iJ-18L" id="K2g-SA-CVA"/>
+                                            <outlet property="nameLabel" destination="P6C-Xg-jNe" id="adB-q5-Mpt"/>
+                                            <outlet property="phoneLabel" destination="iah-io-sAs" id="6QJ-17-WbI"/>
+                                            <outlet property="stepper" destination="sef-XN-Iy7" id="L31-KR-GlD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

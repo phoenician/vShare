@@ -34,6 +34,8 @@
 		8CE9A71B1A38900300755105 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9A71A1A38900300755105 /* DataService.swift */; };
 		8CE9A71D1A3B56C700755105 /* MemberSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */; };
 		F712AB481A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */; };
+		F712AB4E1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB4D1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift */; };
+		F712AB501A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB4F1A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift */; };
 		F77F06871A609E4E00F454D5 /* SpendersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */; };
 		F77F06891A60AF9300F454D5 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F06881A60AF9300F454D5 /* CheckBox.swift */; };
 		F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */; };
@@ -82,6 +84,8 @@
 		8CE9A71A1A38900300755105 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSearchController.swift; sourceTree = "<group>"; };
 		F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCheckboxTableVIewCellDelegate.swift; sourceTree = "<group>"; };
+		F712AB4D1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedSharingTableViewCell.swift; sourceTree = "<group>"; };
+		F712AB4F1A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedSharingTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendersTableViewCell.swift; sourceTree = "<group>"; };
 		F77F06881A60AF9300F454D5 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCheckboxTableViewCell.swift; sourceTree = "<group>"; };
@@ -139,7 +143,9 @@
 				F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */,
 				F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */,
 				8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */,
+				F712AB4D1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift */,
 				8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */,
+				F712AB4F1A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift */,
 				F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */,
 				F77F06881A60AF9300F454D5 /* CheckBox.swift */,
 				F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */,
@@ -292,6 +298,7 @@
 				F77F06871A609E4E00F454D5 /* SpendersTableViewCell.swift in Sources */,
 				F712AB481A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift in Sources */,
 				F77F068D1A61F9D100F454D5 /* CheckBoxDelegate.swift in Sources */,
+				F712AB4E1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift in Sources */,
 				8C30A41E1A3F86A600F55281 /* MembersTableViewCell.swift in Sources */,
 				8CC613771A4AA03800504762 /* ExpenseDetailViewController.swift in Sources */,
 				8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */,
@@ -302,6 +309,7 @@
 				8C1E30D41A65D4BC00814E34 /* EqualSharingTableViewCell.swift in Sources */,
 				8C30A41A1A3C162A00F55281 /* Participant.swift in Sources */,
 				F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */,
+				F712AB501A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift in Sources */,
 				8CE799591A31262F00C58875 /* SwiftyJSON.swift in Sources */,
 				8CE7992F1A2FF00F00C58875 /* AppDelegate.swift in Sources */,
 				8CE799571A2FF22300C58875 /* Kharcha.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 
 var sharers:[Participant] = []
 
-class SelectSharersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EqualSharingTableViewCellDelegate{
+class SelectSharersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EqualSharingTableViewCellDelegate, WeightedSharingTableViewCellDelegate, LabelCheckboxTableViewCellDelegate{
     
     @IBOutlet weak var nextActionButton: UIButton!
     @IBOutlet weak var sharingTypeSegmentedControl: UISegmentedControl!
@@ -48,11 +48,32 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
             cell.delegate = self
             return cell
         }
-        else{
-            var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
-                , reuseIdentifier: "cell")
-            cell.textLabel?.text = "\(all[indexPath.row].name!)"
+        if sharingTypeSegmentedControl.selectedSegmentIndex == 2 {
+            var cell:LabelCheckboxTableViewCell = tableView.dequeueReusableCellWithIdentifier("selectcustomsharercell") as LabelCheckboxTableViewCell
+            cell.nameLabel.text = "\(all[indexPath.row].name!)"
+            cell.phoneLabel.text = "\(all[indexPath.row].phone!)"
+            cell.tag = indexPath.row
+            cell.delegate = self
             return cell
+        }
+        else{
+            var cell:WeightedSharingTableViewCell = tableView.dequeueReusableCellWithIdentifier("selectweightedsharercell") as WeightedSharingTableViewCell
+            cell.nameLabel.text = "\(all[indexPath.row].name!)"
+            cell.phoneLabel.text = "\(all[indexPath.row].phone!)"
+            cell.tag = indexPath.row
+            cell.delegate = self
+            return cell
+        }
+    }
+
+    func checkboxUnchecked(cell: WeightedSharingTableViewCell) {
+        tags = tags.filter({$0 != cell.tag})
+    }
+    
+    func checkboxChecked(sender: WeightedSharingTableViewCell) {
+        if nextActionButton.hidden == true {
+            nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
+            nextActionButton.hidden = false
         }
     }
     
@@ -62,9 +83,26 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
     
     func checkboxChecked(sender: EqualSharingTableViewCell) {
         if nextActionButton.hidden == true {
-            nextActionButton.setTitle("Done adding spenders", forState: UIControlState.Normal)
+            nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
             nextActionButton.hidden = false
         }
     }
     
+    func textFieldShouldReturn(cell: LabelCheckboxTableViewCell) -> Bool{
+        if cell.checkBox.isChecked {
+            tags.append(cell.tag)
+        }
+        return true
+    }
+    
+    func checkboxUnchecked(cell: LabelCheckboxTableViewCell) {
+        tags = tags.filter({$0 != cell.tag})
+    }
+    
+    func checkboxChecked(sender: LabelCheckboxTableViewCell) {
+        if nextActionButton.hidden == true {
+            nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
+            nextActionButton.hidden = false
+        }
+    }
 }

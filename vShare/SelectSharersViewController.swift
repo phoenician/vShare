@@ -8,7 +8,7 @@
 
 import UIKit
 
-var sharers:[Participant] = []
+var sharersDict:[Participant:Float] = [:]
 
 class SelectSharersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EqualSharingTableViewCellDelegate, WeightedSharingTableViewCellDelegate, LabelCheckboxTableViewCellDelegate{
     
@@ -17,11 +17,11 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var sharersTable: UITableView!
     
     var all:[Participant] = selectedEvent!.members
-    var tags:[NSNumber] = []
+    
+    var cumulativeWeight:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sharers = all
         nextActionButton.hidden = true
         sharersTable.hidden = true
     }
@@ -31,6 +31,8 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     @IBAction func segmentValueChanged(sender: UISegmentedControl) {
+        sharersDict = [:]
+        cumulativeWeight = 0
         sharersTable.reloadData()
         sharersTable.hidden = false
     }
@@ -67,7 +69,7 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
     }
 
     func checkboxUnchecked(cell: WeightedSharingTableViewCell) {
-        tags = tags.filter({$0 != cell.tag})
+        sharersDict[all[cell.tag]] = nil
     }
     
     func checkboxChecked(sender: WeightedSharingTableViewCell) {
@@ -77,8 +79,12 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
         }
     }
     
+    func weightChanged(sender: WeightedSharingTableViewCell) {
+        sharersDict[all[sender.tag]] = Float(sender.stepper.value)
+    }
+    
     func checkboxUnchecked(cell: EqualSharingTableViewCell) {
-        tags = tags.filter({$0 != cell.tag})
+        sharersDict[all[cell.tag]] = nil
     }
     
     func checkboxChecked(sender: EqualSharingTableViewCell) {
@@ -86,17 +92,16 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
             nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
             nextActionButton.hidden = false
         }
+        sharersDict[all[sender.tag]] = 0
     }
     
     func textFieldShouldReturn(cell: LabelCheckboxTableViewCell) -> Bool{
-        if cell.checkBox.isChecked {
-            tags.append(cell.tag)
-        }
+        sharersDict[all[cell.tag]] = (cell.amountTextField.text as NSString).floatValue
         return true
     }
     
     func checkboxUnchecked(cell: LabelCheckboxTableViewCell) {
-        tags = tags.filter({$0 != cell.tag})
+        sharersDict[all[cell.tag]] = nil
     }
     
     func checkboxChecked(sender: LabelCheckboxTableViewCell) {
@@ -105,4 +110,37 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
             nextActionButton.hidden = false
         }
     }
+    
+    @IBAction func nxtActionClicked(sender: UIButton) {
+        println("printing contents of sharers dictionary:  ")
+        for (k, v) in sharersDict{
+            cumulativeWeight += Int(v)
+            println("Sharer is \(k.name) cumulative weight is \(cumulativeWeight) ")
+        }
+        var unitAmt:Float = expense.amount!/Float(cumulativeWeight)
+        if sharingTypeSegmentedControl.selectedSegmentIndex == 0{
+            for (k, v) in sharersDict{
+                sharersDict[k] = unitAmt
+            }
+        }
+        if sharingTypeSegmentedControl.selectedSegmentIndex == 1{
+            for (k, v) in sharersDict{
+                sharersDict[k] = v*unitAmt
+            }
+        }
+        expense.sharers = sharersDict
+        asyncSave(expense)
+    }
+    
+    func asyncSave(kharcha:Kharcha) {
+        ds.saveExpense(kharcha){
+            id in
+            expense.id = id
+            selectedEvent?.kharchas.append(expense)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.performSegueWithIdentifier("fromSharersToEventView", sender: self)
+            }
+        }
+    }
+    
 }

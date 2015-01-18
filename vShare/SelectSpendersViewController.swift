@@ -8,7 +8,8 @@
 
 import UIKit
 
-var spenders:[Participant] = []
+var spendersDict:[Participant:Float] = [:]
+
 
 class SelectSpendersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LabelCheckboxTableViewCellDelegate {
 
@@ -17,7 +18,6 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     @IBOutlet weak var nextActionButton: UIButton!
 
     var all:[Participant] = selectedEvent!.members
-    var tags:[NSNumber] = []
     
     @IBAction func selected(sender: AnyObject) {
         if(selector.selectedSegmentIndex == 0) {
@@ -32,7 +32,6 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        spenders = all
         spendersTable.hidden = true
         nextActionButton.hidden = true
     }
@@ -55,14 +54,12 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func textFieldShouldReturn(cell: LabelCheckboxTableViewCell) -> Bool{
-        if cell.checkBox.isChecked {
-            tags.append(cell.tag)
-        }
+        spendersDict[all[cell.tag]] = (cell.amountTextField.text as NSString).floatValue
         return true
     }
     
     func checkboxUnchecked(cell: LabelCheckboxTableViewCell) {
-        tags = tags.filter({$0 != cell.tag})
+        spendersDict[all[cell.tag]] = nil
     }
     
     func checkboxChecked(sender: LabelCheckboxTableViewCell) {
@@ -73,11 +70,10 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     }
 
     @IBAction func nxtActionClicked(sender: UIButton) {
-        spenders = []
-        for tag in tags {
-            var spender:Participant = all[tag as Int]
-            spenders.append(spender)
+        if selector.selectedSegmentIndex == 0 {
+            spendersDict[ps.getParticipantById(selectedExpense.creator!)!] = selectedExpense.amount
         }
+        expense.spenders = spendersDict
         self.performSegueWithIdentifier("fromSpendersToSharers", sender: self)
     }
 }

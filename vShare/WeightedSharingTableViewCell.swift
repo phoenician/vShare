@@ -27,7 +27,7 @@ class WeightedSharingTableViewCell: UITableViewCell, CheckBoxDelegate {
         
         //TODO: this needs to change - should default to the number of family members in a participants family (configured while creating event)
         self.countLabel.text = "1"
-        
+
         
         self.stepper.hidden = true
         self.stepper.wraps = true

@@ -73,5 +73,9 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         self.performSegueWithIdentifier("showEventView", sender: indexPath)
     }
     
+    @IBAction func cancelToViewController(segue: UIStoryboardSegue) {
+        //
+    }
+    
 }
 

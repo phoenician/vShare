@@ -89,31 +89,8 @@ class DataService: NSObject {
                 if (err != nil) {
                     println("JSON Error \(err!.localizedDescription)")
                 }
-                for i in 0..<jsonArr.count {
-                    var kharcha:Kharcha = Kharcha()
-                    if let desc = jsonArr[i]["description"] as? NSString{
-                        kharcha.desc = desc
-                    }
-                    if let id = jsonArr[i]["_id"] as? NSString{
-                        kharcha.id = id
-                    }
-                    if let eventid = jsonArr[i]["event"] as? NSString{
-                        kharcha.eventId = eventid
-                    }
-                    if let participantIds:[NSString] = jsonArr[i]["participants"] as? [NSString] {
-                        var participants:[Participant] = []
-                        for id in participantIds{
-                            participants.append(Participant(id: id))
-                        }
-                        kharcha.participants = participants
-                    }
-                    if let creator = jsonArr[i]["creator"] as? NSString{
-                        kharcha.creator = creator
-                    }
-                    if let created = jsonArr[i]["created"] as? NSString{
-                        kharcha.created = created
-                    }
-                    kharchas.append(kharcha)
+                for json in jsonArr {
+                    kharchas.append(Kharcha(json: json))
                 }
                 callback(kharchas)
             }

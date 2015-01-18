@@ -19,7 +19,7 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
         descriptionLabel.text = selectedExpense.desc
         // Do any additional setup after loading the view.
         involved.append(ps.getParticipantById(userid)!)
-        involved+=selectedExpense.participants
+        involved+=selectedExpense.sharers.keys
     }
 
     override func didReceiveMemoryWarning() {

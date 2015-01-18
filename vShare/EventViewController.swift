@@ -22,6 +22,11 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reloadData()
+    }
+    
+    func reloadData(){
+        self.expenses = []
         if let id = selectedEvent?.id {
             
             ds.getExpenses(id, callback: {
@@ -56,5 +61,10 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
         selectedExpense = expenses[indexPath.row]
         self.performSegueWithIdentifier("showExpenseDetails", sender: indexPath)
     }
+    
+    @IBAction func cancelToEventViewController(segue: UIStoryboardSegue) {
+        reloadData()
+    }
+    
 
 }

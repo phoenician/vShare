@@ -106,7 +106,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFS-Kb-zSg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="-911"/>
+            <point key="canvasLocation" x="-889" y="-887"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -168,18 +168,17 @@
                     <navigationItem key="navigationItem" id="Ibo-F0-Jud"/>
                     <connections>
                         <outlet property="eventsTable" destination="Nyc-4l-eAa" id="sWz-Ub-DKq"/>
-                        <segue destination="pBv-Jb-eCg" kind="show" identifier="addKharchaSegue" id="yks-Om-QZs"/>
-                        <segue destination="Zlg-up-kTe" kind="show" identifier="showEventView" id="rNr-W3-TjP"/>
+                        <segue destination="Zlg-up-kTe" kind="show" identifier="showEventView" id="4MK-V6-uW3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="-199"/>
+            <point key="canvasLocation" x="209" y="-1277"/>
         </scene>
-        <!--Kharcha View Controller-->
+        <!--Create Expense View Controller-->
         <scene sceneID="pUr-yI-dX2">
             <objects>
-                <viewController id="pBv-Jb-eCg" customClass="KharchaViewController" customModule="vShare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pBv-Jb-eCg" customClass="CreateExpenseViewController" customModule="vShare" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mkb-b5-28o"/>
                         <viewControllerLayoutGuide type="bottom" id="LUc-qW-pq6"/>
@@ -188,106 +187,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-lI-YER">
-                                <rect key="frame" x="36" y="81" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="WVa-cR-n4p"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="pBv-Jb-eCg" id="I65-cR-u1M"/>
-                                </connections>
-                            </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="eKJ-cj-dcv">
-                                <rect key="frame" x="0.0" y="202" width="600" height="398"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="pBv-Jb-eCg" id="zKB-Lh-Vpv"/>
-                                    <outlet property="delegate" destination="pBv-Jb-eCg" id="CQH-bu-mby"/>
-                                </connections>
-                            </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8s-2g-O6j">
                                 <rect key="frame" x="0.0" y="16" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="Add Expense" id="tz6-12-1K9">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="Q3A-EZ-3RL">
                                             <connections>
-                                                <segue destination="vXZ-lx-hvc" kind="show" id="RDJ-x1-bWy"/>
+                                                <segue destination="wQO-X1-kQp" kind="unwind" unwindAction="cancelToViewController:" id="vCN-jK-Flc"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="jmM-AK-a1F">
                                             <connections>
-                                                <action selector="donePressed:" destination="pBv-Jb-eCg" id="two-U4-An2"/>
+                                                <action selector="donePressed:" destination="pBv-Jb-eCg" id="2gP-C0-9IX"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uG-dU-B1F">
-                                <rect key="frame" x="464" y="81" width="100" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="fs0-Hy-2Uc"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uG-dU-B1F">
+                                <rect key="frame" x="250" y="275" width="100" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                 <connections>
-                                    <outlet property="delegate" destination="pBv-Jb-eCg" id="z4b-B4-mDi"/>
+                                    <outlet property="delegate" destination="pBv-Jb-eCg" id="OrX-D6-OCo"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People who'll share this expense:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RKk-py-t1h">
-                                <rect key="frame" x="172" y="147" width="257" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(remove from list by swiping)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jym-HI-xsZ">
-                                <rect key="frame" x="191" y="165" width="219" height="21"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ypC-lI-YER">
+                                <rect key="frame" x="150" y="200" width="300" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="DX4-r3-F4H"/>
-                                    <constraint firstAttribute="width" constant="219" id="PD4-Do-iMI"/>
+                                    <constraint firstAttribute="width" constant="300" id="5K4-Wj-3H6"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                <color key="textColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="pBv-Jb-eCg" id="3nk-4o-Aop"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p8s-2g-O6j" firstAttribute="leading" secondItem="zwP-MD-bNI" secondAttribute="leading" id="1LU-b1-eyE"/>
-                            <constraint firstItem="0uG-dU-B1F" firstAttribute="leading" secondItem="ypC-lI-YER" secondAttribute="trailing" constant="20" id="28g-ec-7mn"/>
-                            <constraint firstItem="ypC-lI-YER" firstAttribute="top" secondItem="p8s-2g-O6j" secondAttribute="bottom" constant="21" id="CkT-ZI-zbX"/>
-                            <constraint firstAttribute="trailing" secondItem="eKJ-cj-dcv" secondAttribute="trailing" id="Fdw-5O-43N"/>
-                            <constraint firstItem="eKJ-cj-dcv" firstAttribute="top" secondItem="RKk-py-t1h" secondAttribute="bottom" constant="34" id="Fx9-n7-acb"/>
-                            <constraint firstItem="Jym-HI-xsZ" firstAttribute="centerX" secondItem="RKk-py-t1h" secondAttribute="centerX" id="M31-EF-2Y2"/>
-                            <constraint firstItem="ypC-lI-YER" firstAttribute="leading" secondItem="zwP-MD-bNI" secondAttribute="leadingMargin" constant="20" id="OFy-A6-pdc"/>
-                            <constraint firstItem="ypC-lI-YER" firstAttribute="baseline" secondItem="0uG-dU-B1F" secondAttribute="baseline" id="P26-jd-PUO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0uG-dU-B1F" secondAttribute="trailing" constant="20" id="Zn4-fx-0Zl"/>
-                            <constraint firstItem="eKJ-cj-dcv" firstAttribute="leading" secondItem="zwP-MD-bNI" secondAttribute="leading" id="Zsv-AA-RuE"/>
+                            <constraint firstItem="0uG-dU-B1F" firstAttribute="top" secondItem="zwP-MD-bNI" secondAttribute="top" constant="275" id="YSA-3v-wLr"/>
+                            <constraint firstAttribute="centerX" secondItem="0uG-dU-B1F" secondAttribute="centerX" id="Ym4-Ls-EpO"/>
                             <constraint firstAttribute="trailing" secondItem="p8s-2g-O6j" secondAttribute="trailing" id="bpG-rY-ova"/>
-                            <constraint firstItem="eKJ-cj-dcv" firstAttribute="top" secondItem="Jym-HI-xsZ" secondAttribute="bottom" constant="16" id="hAT-bp-8mv"/>
-                            <constraint firstAttribute="bottom" secondItem="eKJ-cj-dcv" secondAttribute="bottom" id="hkQ-Jq-K3i"/>
-                            <constraint firstItem="eKJ-cj-dcv" firstAttribute="top" secondItem="mkb-b5-28o" secondAttribute="bottom" constant="182" id="iVf-xU-30k"/>
+                            <constraint firstItem="ypC-lI-YER" firstAttribute="top" secondItem="zwP-MD-bNI" secondAttribute="top" constant="200" id="hsa-t2-1Z3"/>
                             <constraint firstItem="p8s-2g-O6j" firstAttribute="top" secondItem="zwP-MD-bNI" secondAttribute="top" constant="16" id="txH-aU-qoz"/>
-                            <constraint firstItem="RKk-py-t1h" firstAttribute="centerX" secondItem="p8s-2g-O6j" secondAttribute="centerX" id="wVy-eF-2bX"/>
+                            <constraint firstAttribute="centerX" secondItem="ypC-lI-YER" secondAttribute="centerX" id="zXh-ca-fxS"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="28g-ec-7mn"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
-                        <outlet property="kharchaAmt" destination="0uG-dU-B1F" id="DL4-RD-aDV"/>
-                        <outlet property="kharchaDesc" destination="ypC-lI-YER" id="2jr-X5-pKs"/>
-                        <outlet property="membersTable" destination="eKJ-cj-dcv" id="pbc-ei-G7A"/>
-                        <segue destination="Zlg-up-kTe" kind="show" identifier="showExpFromAddExp" id="izW-Ff-a7i"/>
-                        <segue destination="9lM-C0-pr1" kind="show" identifier="selectSpendersFromAddExpense" id="9xT-0X-dyO"/>
+                        <outlet property="amount" destination="0uG-dU-B1F" id="ugz-Sa-7Sv"/>
+                        <outlet property="desc" destination="ypC-lI-YER" id="apW-72-3uU"/>
+                        <outlet property="doneButton" destination="jmM-AK-a1F" id="QXh-dO-mFk"/>
+                        <segue destination="9lM-C0-pr1" kind="show" identifier="selectSpendersSegue" id="gvN-xx-DxP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rTc-Xi-h5i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wQO-X1-kQp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-643"/>
+            <point key="canvasLocation" x="193" y="-2867"/>
         </scene>
         <!--Select Sharers View Controller-->
         <scene sceneID="Y0D-qs-E0A">
@@ -317,6 +275,9 @@
                                 <state key="normal" title="Next Action">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="nxtActionClicked:" destination="QJm-jJ-YT4" eventType="touchUpInside" id="U7S-vL-nAj"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="B5F-QF-aSk">
                                 <rect key="frame" x="0.0" y="118" width="600" height="482"/>
@@ -490,11 +451,13 @@
                         <outlet property="nextActionButton" destination="dPV-pb-joB" id="tWi-6I-DD2"/>
                         <outlet property="sharersTable" destination="B5F-QF-aSk" id="OmG-MK-8cf"/>
                         <outlet property="sharingTypeSegmentedControl" destination="B4T-V4-opK" id="MPK-e4-3TE"/>
+                        <segue destination="AxQ-7I-KAU" kind="unwind" identifier="fromSharersToEventView" unwindAction="cancelToEventViewController:" id="tIO-dP-2vq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5io-ge-gNM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AxQ-7I-KAU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1994" y="-643"/>
+            <point key="canvasLocation" x="1562" y="-2867"/>
         </scene>
         <!--Select Spenders View Controller-->
         <scene sceneID="yvO-Cc-U3u">
@@ -607,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSL-av-i1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1331" y="-643"/>
+            <point key="canvasLocation" x="899" y="-2867"/>
         </scene>
         <!--Title-->
         <scene sceneID="WX1-Jk-f3P">
@@ -627,12 +590,12 @@
                                     <navigationItem title="Expenses" id="aAN-Z9-9du">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="1RV-HQ-4fW">
                                             <connections>
-                                                <segue destination="vXZ-lx-hvc" kind="show" id="taL-E5-tyS"/>
+                                                <segue destination="H3p-MO-T7M" kind="unwind" unwindAction="cancelToViewController:" id="1ab-7l-bfb"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Add" id="1J1-r2-Np7">
                                             <connections>
-                                                <segue destination="pBv-Jb-eCg" kind="show" id="ZR9-Jv-3k4"/>
+                                                <segue destination="pBv-Jb-eCg" kind="show" identifier="fromExpensesToAddExpense" id="RY1-C9-EAz"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -664,8 +627,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PQP-ah-HkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="H3p-MO-T7M" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="625" y="64"/>
+            <point key="canvasLocation" x="209" y="-2035"/>
         </scene>
         <!--Expense Detail View Controller-->
         <scene sceneID="aJj-Is-tbD">
@@ -685,7 +649,7 @@
                                     <navigationItem title="Expense Details" id="6um-2p-PjO">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="bfL-Gf-Uti">
                                             <connections>
-                                                <segue destination="Zlg-up-kTe" kind="show" id="Aos-RL-hDp"/>
+                                                <segue destination="GlK-FX-hNU" kind="unwind" unwindAction="cancelToEventViewController:" id="eRB-bA-1bY"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Summary" id="YCY-qJ-8eI">
@@ -730,8 +694,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwU-eE-Bod" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="GlK-FX-hNU" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1363" y="52"/>
+            <point key="canvasLocation" x="947" y="-2047"/>
         </scene>
         <!--Summary View Controller-->
         <scene sceneID="Kr5-cW-GBT">
@@ -751,7 +716,7 @@
                                     <navigationItem title="Summary" id="OBi-5e-Lzd">
                                         <barButtonItem key="rightBarButtonItem" title="Done" id="P1y-hv-BU9">
                                             <connections>
-                                                <segue destination="vXZ-lx-hvc" kind="show" id="z6M-pk-kFV"/>
+                                                <segue destination="Kko-Pl-T8B" kind="unwind" unwindAction="cancelToViewController:" id="JsN-LV-qYG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -782,8 +747,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoP-H3-zYT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Kko-Pl-T8B" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="-686"/>
+            <point key="canvasLocation" x="3332" y="258"/>
         </scene>
         <!--Member Search Controller-->
         <scene sceneID="qPG-an-0Id">
@@ -986,13 +952,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbN-tY-rfG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-999" y="-505"/>
+            <point key="canvasLocation" x="-1743" y="-897"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yks-Om-QZs"/>
-        <segue reference="z6M-pk-kFV"/>
-        <segue reference="rNr-W3-TjP"/>
         <segue reference="dMb-XE-SnS"/>
+        <segue reference="5Un-mF-j5j"/>
     </inferredMetricsTieBreakers>
 </document>

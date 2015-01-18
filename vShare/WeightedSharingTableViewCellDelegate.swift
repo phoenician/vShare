@@ -11,4 +11,6 @@ import Foundation
 protocol WeightedSharingTableViewCellDelegate:NSObjectProtocol{
     func checkboxChecked(sender: WeightedSharingTableViewCell)
     func checkboxUnchecked(sender: WeightedSharingTableViewCell)
+    func weightChanged(sender:WeightedSharingTableViewCell)
+    
 }

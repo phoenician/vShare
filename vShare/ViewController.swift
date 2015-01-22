@@ -31,14 +31,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     func reinitializeView(){
         events = []
+        eventTextField.text = nil
+        asyncFetchTableData()
         eventsTable.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         reinitializeView()
-        asyncFetchTableData()
-        
     }
     
     func asyncFetchTableData(){
@@ -76,7 +76,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     }
     
     @IBAction func cancelToViewController(segue: UIStoryboardSegue) {
-        //
+        reinitializeView()
     }
     
 }

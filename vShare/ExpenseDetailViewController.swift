@@ -11,14 +11,13 @@ import UIKit
 class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var descriptionLabel: UILabel!
-    var userid = usrDefaults.objectForKey("userid") as NSString
     var involved:[Participant] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         descriptionLabel.text = selectedExpense.desc
         // Do any additional setup after loading the view.
-        involved.append(ps.getParticipantById(userid)!)
+        involved.append(ps.getParticipantById(myid)!)
         involved+=selectedExpense.sharers.keys
     }
 

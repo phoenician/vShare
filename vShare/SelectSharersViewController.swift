@@ -10,20 +10,26 @@ import UIKit
 
 var sharersDict:[Participant:Float] = [:]
 
-class SelectSharersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, EqualSharingTableViewCellDelegate, WeightedSharingTableViewCellDelegate, LabelCheckboxTableViewCellDelegate{
+class SelectSharersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SimpleSelectableCellDelegate{
     
     @IBOutlet weak var nextActionButton: UIButton!
     @IBOutlet weak var sharingTypeSegmentedControl: UISegmentedControl!
     @IBOutlet weak var sharersTable: UITableView!
     
     var all:[Participant] = selectedEvent!.members
+    var cellsDict:[NSNumber:SimpleSelectableCell] = [:]
     
     var cumulativeWeight:Int = 0
+    
+    func reset(){
+        cellsDict = [:]
+        sharersDict = [:]
+        cumulativeWeight = 0
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         nextActionButton.hidden = true
-        sharersTable.hidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -31,10 +37,8 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     @IBAction func segmentValueChanged(sender: UISegmentedControl) {
-        sharersDict = [:]
-        cumulativeWeight = 0
+        reset()
         sharersTable.reloadData()
-        sharersTable.hidden = false
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -42,93 +46,72 @@ class SelectSharersViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        if sharingTypeSegmentedControl.selectedSegmentIndex == 0 {
-            var cell:EqualSharingTableViewCell = tableView.dequeueReusableCellWithIdentifier("selectequalsharercell") as EqualSharingTableViewCell
-            cell.nameLabel.text = "\(all[indexPath.row].name!)"
-            cell.phoneLabel.text = "\(all[indexPath.row].phone!)"
-            cell.tag = indexPath.row
-            cell.delegate = self
-            return cell
+        var cell:SimpleSelectableCell
+        var segment:Int = sharingTypeSegmentedControl.selectedSegmentIndex
+        switch segment  {
+            case 1: cell = tableView.dequeueReusableCellWithIdentifier("selectweightedsharercell") as WeightedInputSelectableCell
+            case 2: cell = tableView.dequeueReusableCellWithIdentifier("selectcustomsharercell") as CustomInputSelectableCell
+            default: cell = tableView.dequeueReusableCellWithIdentifier("selectequalsharercell") as SimpleSelectableCell
         }
-        if sharingTypeSegmentedControl.selectedSegmentIndex == 2 {
-            var cell:LabelCheckboxTableViewCell = tableView.dequeueReusableCellWithIdentifier("selectcustomsharercell") as LabelCheckboxTableViewCell
-            cell.nameLabel.text = "\(all[indexPath.row].name!)"
-            cell.phoneLabel.text = "\(all[indexPath.row].phone!)"
-            cell.tag = indexPath.row
-            cell.delegate = self
-            return cell
-        }
-        else{
-            var cell:WeightedSharingTableViewCell = tableView.dequeueReusableCellWithIdentifier("selectweightedsharercell") as WeightedSharingTableViewCell
-            cell.nameLabel.text = "\(all[indexPath.row].name!)"
-            cell.phoneLabel.text = "\(all[indexPath.row].phone!)"
-            cell.tag = indexPath.row
-            cell.delegate = self
-            return cell
-        }
-    }
-
-    func checkboxUnchecked(cell: WeightedSharingTableViewCell) {
-        sharersDict[all[cell.tag]] = nil
+        setupCommonCellProperties(cell, idx: indexPath.row)
+        return cell
     }
     
-    func checkboxChecked(sender: WeightedSharingTableViewCell) {
+    func setupCommonCellProperties(cell:SimpleSelectableCell, idx:Int){
+        cell.nameLabel.text = all[idx].name!
+        cell.phoneLabel.text = all[idx].phone!
+        cell.tag = idx
+        cell.delegate = self
+    }
+    
+    func checkboxUnchecked(cell: SimpleSelectableCell) {
+        cellsDict[cell.tag] = nil
+    }
+    
+    func checkboxChecked(cell: SimpleSelectableCell) {
         if nextActionButton.hidden == true {
             nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
             nextActionButton.hidden = false
         }
+        cellsDict[cell.tag] = cell
     }
     
-    func weightChanged(sender: WeightedSharingTableViewCell) {
-        sharersDict[all[sender.tag]] = Float(sender.stepper.value)
-    }
-    
-    func checkboxUnchecked(cell: EqualSharingTableViewCell) {
-        sharersDict[all[cell.tag]] = nil
-    }
-    
-    func checkboxChecked(sender: EqualSharingTableViewCell) {
-        if nextActionButton.hidden == true {
-            nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
-            nextActionButton.hidden = false
+    func getUnitAmount() -> Float{
+        var segment:Int = sharingTypeSegmentedControl.selectedSegmentIndex
+        switch segment{
+            case 1:
+                for (k, v) in cellsDict{
+                    cumulativeWeight += (v as WeightedInputSelectableCell).weight!
+                }
+            default:
+                for (k, v) in cellsDict{
+                    cumulativeWeight += 1
+                }
         }
-        sharersDict[all[sender.tag]] = 0
-    }
-    
-    func textFieldShouldReturn(cell: LabelCheckboxTableViewCell) -> Bool{
-        sharersDict[all[cell.tag]] = (cell.amountTextField.text as NSString).floatValue
-        return true
-    }
-    
-    func checkboxUnchecked(cell: LabelCheckboxTableViewCell) {
-        sharersDict[all[cell.tag]] = nil
-    }
-    
-    func checkboxChecked(sender: LabelCheckboxTableViewCell) {
-        if nextActionButton.hidden == true {
-            nextActionButton.setTitle("Done adding sharing details", forState: UIControlState.Normal)
-            nextActionButton.hidden = false
-        }
+        return expense.amount!/Float(cumulativeWeight)
     }
     
     @IBAction func nxtActionClicked(sender: UIButton) {
-        println("printing contents of sharers dictionary:  ")
-        for (k, v) in sharersDict{
-            cumulativeWeight += Int(v)
-            println("Sharer is \(k.name) cumulative weight is \(cumulativeWeight) ")
-        }
-        var unitAmt:Float = expense.amount!/Float(cumulativeWeight)
         if sharingTypeSegmentedControl.selectedSegmentIndex == 0{
-            for (k, v) in sharersDict{
-                sharersDict[k] = unitAmt
+            var unitAmount:Float = getUnitAmount()
+            for (tag, cell) in cellsDict{
+                sharersDict[all[Int(tag)]] = unitAmount
             }
         }
         if sharingTypeSegmentedControl.selectedSegmentIndex == 1{
-            for (k, v) in sharersDict{
-                sharersDict[k] = v*unitAmt
+            var unitAmount:Float = getUnitAmount()
+            for (tag, cell) in cellsDict{
+                var weightedcell:WeightedInputSelectableCell = cell as WeightedInputSelectableCell
+                sharersDict[all[Int(tag)]] = Float(weightedcell.weight!)*unitAmount
+            }
+        }
+        if sharingTypeSegmentedControl.selectedSegmentIndex == 2{
+            for (tag, cell) in cellsDict{
+                sharersDict[all[Int(tag)]] = ((cell as CustomInputSelectableCell).textField.text as NSString).floatValue
             }
         }
         expense.sharers = sharersDict
+        reset()
         asyncSave(expense)
     }
     

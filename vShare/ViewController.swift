@@ -9,6 +9,8 @@
 import UIKit
 import QuartzCore
 
+var myid = usrDefaults.objectForKey("userid") as NSString
+
 var events:[Event] = []
 var selectedEvent:Event?
 
@@ -21,7 +23,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         newEvent.desc = textField.text
-        let user:Participant = Participant(id: usrDefaults.objectForKey("userid") as String, name: usrDefaults.objectForKey("name") as String, code: usrDefaults.objectForKey("countrycode") as String, phone: usrDefaults.objectForKey("phone") as String)
+        let user:Participant = Participant(id: myid, name: usrDefaults.objectForKey("name") as String, code: usrDefaults.objectForKey("countrycode") as String, phone: usrDefaults.objectForKey("phone") as String)
         newEvent.members.append(user)
         textField.resignFirstResponder()
         return true

@@ -30,7 +30,7 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             eventid in
             println("******* Event id is \(eventid) *******")
             dispatch_async(dispatch_get_main_queue()) {
-                self.performSegueWithIdentifier("showListOfEvents", sender: self)
+                self.performSegueWithIdentifier("cancelToViewController", sender: self)
             }
         }
     }
@@ -56,6 +56,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
             , reuseIdentifier: "cell")
         cell.textLabel?.text = newEvent.members[indexPath.row].name
         return cell
+    }
+    
+    @IBAction func cancelToAddViewController(segue: UIStoryboardSegue) {
+        friendsTable.reloadData()
     }
     
 }

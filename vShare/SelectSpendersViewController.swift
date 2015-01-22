@@ -11,19 +11,19 @@ import UIKit
 var spendersDict:[Participant:Float] = [:]
 
 
-class SelectSpendersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, LabelCheckboxTableViewCellDelegate {
+class SelectSpendersViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SimpleSelectableCellDelegate {
 
     @IBOutlet weak var selector: UISegmentedControl!
     @IBOutlet weak var spendersTable: UITableView!
     @IBOutlet weak var nextActionButton: UIButton!
 
+    var cellsDict:[NSNumber:CustomInputSelectableCell] = [:]
     var all:[Participant] = selectedEvent!.members
     
     @IBAction func selected(sender: AnyObject) {
         if(selector.selectedSegmentIndex == 0) {
             spendersTable.hidden = true
             nextActionButton.setTitle("Let's move along", forState: UIControlState.Normal)
-            nextActionButton.hidden = false
         }else{
             spendersTable.hidden = false
             nextActionButton.hidden = true
@@ -32,8 +32,9 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        spendersDict = [:]
         spendersTable.hidden = true
-        nextActionButton.hidden = true
+        nextActionButton.setTitle("Let's move along", forState: UIControlState.Normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,35 +46,42 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var cell:LabelCheckboxTableViewCell = tableView.dequeueReusableCellWithIdentifier("selectspendercell") as LabelCheckboxTableViewCell
-        cell.nameLabel.text = "\(all[indexPath.row].name!)"
-        cell.phoneLabel.text = "\(all[indexPath.row].phone!)"
+        var cell:CustomInputSelectableCell = tableView.dequeueReusableCellWithIdentifier("selectspendercell") as CustomInputSelectableCell
+        cell.nameLabel.text = all[indexPath.row].name!
+        cell.phoneLabel.text = all[indexPath.row].phone!
         cell.tag = indexPath.row
         cell.delegate = self
         return cell
     }
     
-    func textFieldShouldReturn(cell: LabelCheckboxTableViewCell) -> Bool{
-        spendersDict[all[cell.tag]] = (cell.amountTextField.text as NSString).floatValue
-        return true
+    func checkboxUnchecked(cell: SimpleSelectableCell) {
+        cellsDict[cell.tag] = nil
     }
     
-    func checkboxUnchecked(cell: LabelCheckboxTableViewCell) {
-        spendersDict[all[cell.tag]] = nil
-    }
-    
-    func checkboxChecked(sender: LabelCheckboxTableViewCell) {
+    func checkboxChecked(cell: SimpleSelectableCell) {
         if nextActionButton.hidden == true {
             nextActionButton.setTitle("Done adding spenders", forState: UIControlState.Normal)
             nextActionButton.hidden = false
         }
+        cellsDict[cell.tag] = cell as? CustomInputSelectableCell
+    }
+    
+    func reset(){
+        cellsDict = [:]
+        spendersDict = [:]
     }
 
     @IBAction func nxtActionClicked(sender: UIButton) {
         if selector.selectedSegmentIndex == 0 {
-            spendersDict[ps.getParticipantById(selectedExpense.creator!)!] = selectedExpense.amount
+            spendersDict[ps.getParticipantById(myid)!] = expense.amount
+        }else{
+            //build spenders dict and reinitialize cells dict
+            for (tag, cell) in cellsDict{
+                spendersDict[all[Int(tag)]] = (cell.textField.text as NSString).floatValue
+            }
         }
         expense.spenders = spendersDict
+        reset()
         self.performSegueWithIdentifier("fromSpendersToSharers", sender: self)
     }
 }

@@ -283,7 +283,7 @@
                                 <rect key="frame" x="0.0" y="118" width="600" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectequalsharercell" id="l5a-PG-dm1" customClass="EqualSharingTableViewCell" customModule="vShare" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectequalsharercell" id="l5a-PG-dm1" customClass="SimpleSelectableCell" customModule="vShare" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l5a-PG-dm1" id="MSY-gg-nbc">
@@ -318,12 +318,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="checkbox" destination="Z5V-bs-jQz" id="yAF-7V-yZn"/>
+                                            <outlet property="checkBox" destination="Z5V-bs-jQz" id="ZOd-0d-baM"/>
                                             <outlet property="nameLabel" destination="ahB-VZ-c89" id="dUR-jY-Hle"/>
                                             <outlet property="phoneLabel" destination="5LH-Ld-LSD" id="9uA-L4-sZi"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectcustomsharercell" id="qdz-lq-L17" customClass="LabelCheckboxTableViewCell" customModule="vShare" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectcustomsharercell" id="qdz-lq-L17" customClass="CustomInputSelectableCell" customModule="vShare" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="278" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qdz-lq-L17" id="bVg-wA-FVj">
@@ -365,13 +365,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="amountTextField" destination="HUr-MW-F4v" id="bIf-C3-aF3"/>
                                             <outlet property="checkBox" destination="iEq-PF-4yY" id="Vsu-yQ-7gn"/>
                                             <outlet property="nameLabel" destination="uEE-CH-N4X" id="NEE-Id-if0"/>
                                             <outlet property="phoneLabel" destination="yZZ-u6-sTA" id="Sg2-Xj-8y0"/>
+                                            <outlet property="textField" destination="HUr-MW-F4v" id="U2e-r2-3dt"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectweightedsharercell" id="CsM-fj-72V" customClass="WeightedSharingTableViewCell" customModule="vShare" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectweightedsharercell" id="CsM-fj-72V" customClass="WeightedInputSelectableCell" customModule="vShare" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="278" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CsM-fj-72V" id="RVX-yz-UI3">
@@ -421,7 +421,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="checkbox" destination="HXu-qk-HR5" id="4p8-8v-rnn"/>
+                                            <outlet property="checkBox" destination="HXu-qk-HR5" id="O2s-WD-LVF"/>
                                             <outlet property="countLabel" destination="VWK-iJ-18L" id="K2g-SA-CVA"/>
                                             <outlet property="nameLabel" destination="P6C-Xg-jNe" id="adB-q5-Mpt"/>
                                             <outlet property="phoneLabel" destination="iah-io-sAs" id="6QJ-17-WbI"/>
@@ -485,7 +485,7 @@
                                 <rect key="frame" x="0.0" y="118" width="600" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectspendercell" id="f3y-Zr-Vlg" customClass="LabelCheckboxTableViewCell" customModule="vShare" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectspendercell" id="f3y-Zr-Vlg" customClass="CustomInputSelectableCell" customModule="vShare" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="278" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3y-Zr-Vlg" id="0A1-Na-nDP">
@@ -527,10 +527,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="amountTextField" destination="bwJ-Oo-q7d" id="fhQ-zx-lPg"/>
                                             <outlet property="checkBox" destination="GBq-Zd-qv1" id="eGL-dH-5d3"/>
                                             <outlet property="nameLabel" destination="oMS-Wa-IbJ" id="Qv2-R6-9XB"/>
                                             <outlet property="phoneLabel" destination="dHr-hh-I7h" id="RXS-mW-xcd"/>
+                                            <outlet property="textField" destination="bwJ-Oo-q7d" id="sci-HT-1qQ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -767,43 +767,44 @@
                                 <rect key="frame" x="0.0" y="104" width="600" height="644"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mycell" id="bxo-eT-x8f" customClass="MembersTableViewCell" customModule="vShare" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bxo-eT-x8f" id="fEc-qT-8Ad">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectmembercell" id="ocM-tX-Xcd" customClass="SimpleSelectableCell" customModule="vShare" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="278" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ocM-tX-Xcd" id="ijT-b0-vCF">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdG-gy-ZlU">
-                                                    <rect key="frame" x="17" y="16" width="199" height="21"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Kpj-MG-iH9"/>
-                                                        <constraint firstAttribute="width" constant="199" id="t7A-re-drp"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kr-pe-scW">
+                                                    <rect key="frame" x="10" y="4" width="120" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkK-zy-wSA">
-                                                    <rect key="frame" x="234" y="8" width="58" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="58" id="38T-E2-Opu"/>
-                                                        <constraint firstAttribute="height" constant="30" id="nMO-rQ-aUL"/>
-                                                    </constraints>
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZW5-8T-8MB" customClass="CheckBox" customModule="vShare" customModuleProvider="target">
+                                                    <rect key="frame" x="529" y="7" width="58" height="30"/>
                                                     <state key="normal">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="(phone number)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8r-go-gVx">
+                                                    <rect key="frame" x="10" y="20" width="100" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="dkK-zy-wSA" firstAttribute="top" secondItem="fEc-qT-8Ad" secondAttribute="top" constant="8" id="Rbf-QR-fQt"/>
-                                                <constraint firstItem="IdG-gy-ZlU" firstAttribute="top" secondItem="fEc-qT-8Ad" secondAttribute="top" constant="15" id="qy5-RD-cP3"/>
-                                                <constraint firstAttribute="trailing" secondItem="dkK-zy-wSA" secondAttribute="trailing" constant="8" id="u38-nK-gGI"/>
-                                                <constraint firstItem="IdG-gy-ZlU" firstAttribute="leading" secondItem="fEc-qT-8Ad" secondAttribute="leading" constant="17" id="uXA-lb-1rG"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="ZW5-8T-8MB" secondAttribute="trailing" constant="5" id="OrH-UK-Jnq"/>
+                                                <constraint firstItem="8kr-pe-scW" firstAttribute="leading" secondItem="ijT-b0-vCF" secondAttribute="leading" constant="10" id="U3c-rl-o0d"/>
+                                                <constraint firstItem="s8r-go-gVx" firstAttribute="leading" secondItem="ijT-b0-vCF" secondAttribute="leading" constant="10" id="mp6-1m-cdC"/>
+                                                <constraint firstItem="8kr-pe-scW" firstAttribute="top" secondItem="ijT-b0-vCF" secondAttribute="top" constant="4" id="nRg-vd-WPI"/>
+                                                <constraint firstItem="s8r-go-gVx" firstAttribute="top" secondItem="ijT-b0-vCF" secondAttribute="top" constant="20" id="q5S-Ge-rdx"/>
+                                                <constraint firstItem="ZW5-8T-8MB" firstAttribute="top" secondItem="ijT-b0-vCF" secondAttribute="top" constant="7" id="yUQ-V0-fPr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="addButton" destination="dkK-zy-wSA" id="VEn-fr-zwh"/>
-                                            <outlet property="detailLabel" destination="IdG-gy-ZlU" id="du1-72-Xn5"/>
+                                            <outlet property="checkBox" destination="ZW5-8T-8MB" id="nJZ-Wh-tRF"/>
+                                            <outlet property="nameLabel" destination="8kr-pe-scW" id="ZAD-PN-CmY"/>
+                                            <outlet property="phoneLabel" destination="s8r-go-gVx" id="MQl-Kd-aad"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -850,12 +851,13 @@
                     <connections>
                         <outlet property="memberSearchBar" destination="hvP-du-ezM" id="KY9-ZN-wKJ"/>
                         <outlet property="memberTable" destination="a5U-sk-kWU" id="x1f-oZ-yt7"/>
-                        <segue destination="Xep-zl-6GU" kind="show" identifier="backToNewEvent" id="rsV-Fq-XWn"/>
+                        <segue destination="RoF-9t-UJ9" kind="unwind" identifier="cancelToAddViewController" unwindAction="cancelToAddViewController:" id="gPM-Kw-zAH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s28-rl-kgU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="RoF-9t-UJ9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-805" y="497"/>
+            <point key="canvasLocation" x="999" y="-521"/>
         </scene>
         <!--Add View Controller-->
         <scene sceneID="EBJ-MI-ksp">
@@ -929,12 +931,13 @@
                     </view>
                     <connections>
                         <outlet property="friendsTable" destination="LCr-vG-oef" id="art-wh-3yE"/>
-                        <segue destination="vXZ-lx-hvc" kind="show" identifier="showListOfEvents" id="SsQ-DY-bs7"/>
+                        <segue destination="cpk-Cu-cX3" kind="unwind" identifier="cancelToViewController" unwindAction="cancelToViewController:" id="1Zz-1W-klF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DHF-SN-ne8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="cpk-Cu-cX3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="499"/>
+            <point key="canvasLocation" x="209" y="-521"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BeL-vP-cqr">
@@ -955,8 +958,4 @@
             <point key="canvasLocation" x="-1743" y="-897"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="dMb-XE-SnS"/>
-        <segue reference="5Un-mF-j5j"/>
-    </inferredMetricsTieBreakers>
 </document>

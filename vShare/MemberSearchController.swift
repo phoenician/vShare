@@ -10,7 +10,7 @@ import UIKit
 
 var eventMembers:[Participant] = []
 
-class MemberSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class MemberSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SimpleSelectableCellDelegate {
 
     let ps:ParticipantService = ParticipantService()
     var participants:[Participant] = []
@@ -20,7 +20,7 @@ class MemberSearchController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func doneButtonClicked(sender: AnyObject) {
         newEvent.members+=eventMembers
-        self.performSegueWithIdentifier("backToNewEvent", sender: self)
+        self.performSegueWithIdentifier("cancelToAddViewController", sender: self)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -50,39 +50,26 @@ class MemberSearchController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        var cell:MembersTableViewCell = tableView.dequeueReusableCellWithIdentifier("mycell") as MembersTableViewCell
-        cell.detailLabel.text = "\(participants[indexPath.row].name!) \(participants[indexPath.row].countrycode!) - \(participants[indexPath.row].phone!)"
-        cell.addButton.tag = indexPath.row
-        cell.addButton.backgroundColor = UIColor.greenColor()
-        cell.addButton.setTitle("Add", forState: UIControlState.Normal)
-        cell.addButton.addTarget(self, action: "cellButtonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
-        
+        var cell:SimpleSelectableCell = tableView.dequeueReusableCellWithIdentifier("selectmembercell") as SimpleSelectableCell
+        cell.nameLabel.text = participants[indexPath.row].name!
+        cell.phoneLabel.text = participants[indexPath.row].phone!
+        cell.tag = indexPath.row
+        cell.delegate = self
         return cell
     }
     
-    func cellButtonClicked(sender:UIButton!){
-        if let label = sender.titleLabel{
-            if label.text == "Add" {
-                sender.setTitle("Remove", forState: UIControlState.Normal)
-                sender.backgroundColor = UIColor.redColor()
-                eventMembers.append(participants[sender.tag])
+    func checkboxChecked(sender: SimpleSelectableCell){
+        eventMembers.append(participants[sender.tag])
+    }
+    
+    func checkboxUnchecked(sender: SimpleSelectableCell){
+        var toremove:Participant = participants[sender.tag]
+        eventMembers = eventMembers.filter{
+            participant -> Bool in
+            if (toremove.name != participant.name || toremove.countrycode != participant.countrycode || toremove.phone != participant.phone){
+                return true
             }
-            else {
-                var toremove:Participant = participants[sender.tag]
-                sender.setTitle("Add", forState: UIControlState.Normal)
-                sender.backgroundColor = UIColor.greenColor()
-                eventMembers = eventMembers.filter{
-                    participant -> Bool in
-                    if (toremove.name != participant.name || toremove.countrycode != participant.countrycode || toremove.phone != participant.phone){
-                        return true
-                    }
-                    return false
-                }
-            }
-        }
-        println("Following are the event members: --")
-        for p in eventMembers {
-            println(p.name)
+            return false
         }
     }
     

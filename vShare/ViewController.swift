@@ -75,6 +75,14 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
         self.performSegueWithIdentifier("showEventView", sender: indexPath)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEventView"{
+            let eventController:EventViewController = segue.destinationViewController as EventViewController
+            eventController.navigationItem.title = "eeeeeee!!"
+            eventController.navigationItem.hidesBackButton = true
+        }
+    }
+    
     @IBAction func cancelToViewController(segue: UIStoryboardSegue) {
         reinitializeView()
     }

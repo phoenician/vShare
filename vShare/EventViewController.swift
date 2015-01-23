@@ -16,12 +16,10 @@ class EventViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet weak var expenseTable: UITableView!
     
-    override func viewWillAppear(animated: Bool) {
-        self.navigationItem.title = "Expenses for \(selectedEvent)"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        var b1:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: nil)
+        self.toolbarItems?.append(b1)
         reloadData()
     }
     

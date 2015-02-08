@@ -73,7 +73,7 @@ class SelectSpendersViewController: UIViewController, UITableViewDataSource, UIT
 
     @IBAction func nxtActionClicked(sender: UIButton) {
         if selector.selectedSegmentIndex == 0 {
-            spendersDict[ps.getParticipantById(myid)!] = expense.amount
+            spendersDict[ps.getPrincipal()!] = expense.amount
         }else{
             //build spenders dict and reinitialize cells dict
             for (tag, cell) in cellsDict{

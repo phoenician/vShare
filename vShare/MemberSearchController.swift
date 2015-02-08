@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import CoreData
 
 var eventMembers:[Participant] = []
 
 class MemberSearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, SimpleSelectableCellDelegate {
 
-    let ps:ParticipantService = ParticipantService()
     var participants:[Participant] = []
     
     @IBOutlet weak var memberSearchBar: UISearchBar!
@@ -24,18 +24,30 @@ class MemberSearchController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        if searchBar.text.isEmpty{
-            participants = ps.userdb
-        }else{
-            participants = ps.getMatchingParticipants(Participant(name: searchBar.text, code: "", phone: ""))
+        
+        if(searchBar.selectedScopeButtonIndex == 0){
+            var usersFromCoreData:[Participant] = ps.getParticipantsFromCoreDataMatchName(searchBar.text)
+            ds.searchParticipants("name", searchstr: searchBar.text, callback: {
+                usersFromDB in
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.participants = usersFromCoreData + usersFromDB
+                    self.memberTable.reloadData()
+                }
+            })
+        }else if(searchBar.selectedScopeButtonIndex == 1){
+            var usersFromCoreData:[Participant] = ps.getParticipantsFromCoreDataMatchPhone(searchBar.text)
+            ds.searchParticipants("phone", searchstr: searchBar.text, callback: {
+                usersFromDB in
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.participants = usersFromCoreData + usersFromDB
+                    self.memberTable.reloadData()
+                }
+            })
         }
-        memberTable.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        participants = ps.userdb
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,7 +87,7 @@ class MemberSearchController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewDidAppear(animated: Bool) {
         eventMembers = []
-        participants = ps.userdb
+        participants = ps.getAllParticipantsFromCoreData()
         memberSearchBar.text = ""
         memberTable.reloadData()
     }

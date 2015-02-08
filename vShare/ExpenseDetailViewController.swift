@@ -17,7 +17,7 @@ class ExpenseDetailViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
         descriptionLabel.text = selectedExpense.desc
         // Do any additional setup after loading the view.
-        involved.append(ps.getParticipantById(myid)!)
+        involved.append(ps.getPrincipal()!)
         involved+=selectedExpense.sharers.keys
     }
 

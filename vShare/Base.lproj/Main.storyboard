@@ -774,8 +774,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" misplaced="YES" showsSearchResultsButton="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvP-du-ezM">
+                                <rect key="frame" x="0.0" y="60" width="600" height="88"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Name</string>
+                                    <string>Phone</string>
+                                </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="qaf-Rm-w18" id="i5D-gE-KOl"/>
+                                </connections>
+                            </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-6C-RYB">
+                                <rect key="frame" x="0.0" y="16" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="Add friends to event" id="set-hT-btY">
+                                        <barButtonItem key="rightBarButtonItem" title="Done" id="hZW-wz-1ML">
+                                            <connections>
+                                                <action selector="doneButtonClicked:" destination="qaf-Rm-w18" id="4Xu-ry-de3"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a5U-sk-kWU">
-                                <rect key="frame" x="0.0" y="104" width="600" height="644"/>
+                                <rect key="frame" x="0.0" y="156" width="600" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="selectmembercell" id="ocM-tX-Xcd" customClass="SimpleSelectableCell" customModule="vShare" customModuleProvider="target">
@@ -824,33 +847,14 @@
                                     <outlet property="delegate" destination="qaf-Rm-w18" id="nAX-YZ-OMO"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hvP-du-ezM">
-                                <rect key="frame" x="0.0" y="60" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="qaf-Rm-w18" id="i5D-gE-KOl"/>
-                                </connections>
-                            </searchBar>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-6C-RYB">
-                                <rect key="frame" x="0.0" y="16" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="Add friends to event" id="set-hT-btY">
-                                        <barButtonItem key="rightBarButtonItem" title="Done" id="hZW-wz-1ML">
-                                            <connections>
-                                                <action selector="doneButtonClicked:" destination="qaf-Rm-w18" id="4Xu-ry-de3"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="hvP-du-ezM" firstAttribute="top" secondItem="WFG-3g-e42" secondAttribute="top" constant="60" id="6NP-UQ-BD4"/>
                             <constraint firstItem="XUu-6C-RYB" firstAttribute="top" secondItem="WFG-3g-e42" secondAttribute="top" constant="16" id="71X-bl-1Na"/>
                             <constraint firstAttribute="bottom" secondItem="a5U-sk-kWU" secondAttribute="bottom" constant="-148" id="AXi-q2-zWK"/>
-                            <constraint firstItem="a5U-sk-kWU" firstAttribute="top" secondItem="WFG-3g-e42" secondAttribute="top" constant="104" id="E9P-ZC-kq5"/>
                             <constraint firstItem="a5U-sk-kWU" firstAttribute="leading" secondItem="WFG-3g-e42" secondAttribute="leading" id="JSf-CB-HZI"/>
+                            <constraint firstItem="a5U-sk-kWU" firstAttribute="top" secondItem="o3E-f3-UGX" secondAttribute="bottom" constant="136" id="L4j-Id-kJg"/>
                             <constraint firstAttribute="trailing" secondItem="XUu-6C-RYB" secondAttribute="trailing" id="cN7-Pr-8jg"/>
                             <constraint firstAttribute="trailing" secondItem="a5U-sk-kWU" secondAttribute="trailing" id="fVu-VC-uBs"/>
                             <constraint firstAttribute="trailing" secondItem="hvP-du-ezM" secondAttribute="trailing" id="fw4-gN-7AE"/>

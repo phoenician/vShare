@@ -41,6 +41,9 @@ class SummaryViewController: UIViewController {
         var cell:UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default
             , reuseIdentifier: "cell")
         var summary = summaries[indexPath.row]
+        let appDelegate =
+        UIApplication.sharedApplication().delegate as AppDelegate
+        let managedContext = appDelegate.managedObjectContext!
         if let participantId = summary.participantId{
             if let participant = ps.getParticipantById(participantId){
                 if let name = participant.name{

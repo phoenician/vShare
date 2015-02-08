@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 
 var usrDefaults:NSUserDefaults = NSUserDefaults.standardUserDefaults()
@@ -31,7 +32,6 @@ class LoginViewController: UIViewController {
             asyncSave(name, phone: phone, code: code, callback: {
                 dispatch_async(dispatch_get_main_queue()) {
                     self.performSegueWithIdentifier("showEventsViewSegue", sender: self)
-                    ps.userdb.append(Participant(id:usrDefaults.objectForKey("userid") as NSString, name: name, code: code, phone: phone))
                 }
             })
         }else{
@@ -43,6 +43,8 @@ class LoginViewController: UIViewController {
         ds.saveUser(name, code: code, phone: phone){
             userid in
             usrDefaults.setObject(userid, forKey: "userid")
+            //save to Core Data
+            ps.saveParticipantToCoreData(Participant(id: userid, name: name, code: code, phone: phone))
             callback()
         }
     }

@@ -15,6 +15,7 @@ var events:[Event] = []
 var selectedEvent:Event?
 
 var newEvent:Event = Event()
+var principal:Participant?
 
 class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource {
 
@@ -23,9 +24,8 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
         newEvent.desc = textField.text
-        let user:Participant = Participant(id: myid, name: usrDefaults.objectForKey("name") as String, code: usrDefaults.objectForKey("countrycode") as String, phone: usrDefaults.objectForKey("phone") as String)
-        newEvent.members.append(user)
         textField.resignFirstResponder()
+        newEvent.members.append(principal!)
         return true
     }
     
@@ -38,17 +38,22 @@ class ViewController: UIViewController, UITextFieldDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        principal = ps.getPrincipal()
+        println("Principal \(principal!.name!) is logged in.")
         reinitializeView()
     }
     
     func asyncFetchTableData(){
-        ds.getEvents(usrDefaults.objectForKey("userid") as NSString){
-            eventsList in
-            for event in eventsList {
-                events.append(event)
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.eventsTable.reloadData()
+        if let id = principal?.id{
+            println("Principal id is \(id).")
+            ds.getEvents(id){
+                eventsList in
+                for event in eventsList {
+                    events.append(event)
+                }
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.eventsTable.reloadData()
+                }
             }
         }
     }

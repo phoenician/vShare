@@ -10,9 +10,12 @@ import UIKit
 
 class DataService: NSObject {
     
+    //var jserver_url = "http://jserver-vshare.rhcloud.com"
+    var jserver_url = "http://localhost:8080"
+    
     func getParticipant(countryCode:NSString, phone:NSString) -> NSString? {
         var id:NSString = ""
-        let urlPath = "http://localhost:3000/api/user/\(countryCode)/\(phone)"
+        let urlPath = "\(jserver_url)/api/user/\(countryCode)/\(phone)"
         let url = NSURL(string: urlPath)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -36,9 +39,41 @@ class DataService: NSObject {
         return id
     }
     
+    func searchParticipants(attribute:NSString, searchstr:NSString, callback:([Participant]) -> ()){
+        var users:[Participant] = []
+        let urlPath = "\(jserver_url)/api/usersearch/\(attribute)/\(searchstr)"
+        let url = NSURL(string: urlPath)
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
+            if error != nil {
+                println(error)
+            } else {
+                var err: NSError?
+                var jsonArr = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: &err) as NSArray
+                if (err != nil) {
+                    println("JSON Error \(err!.localizedDescription)")
+                }
+                for i in 0..<jsonArr.count {
+                    if let name = jsonArr[i]["name"] as? NSString{
+                        if let userId = jsonArr[i]["_id"] as? NSString{
+                            if let phone = jsonArr[i]["phone"] as? NSString{
+                                if let countrycode = jsonArr[i]["countrycode"] as? NSString{
+                                    var user:Participant = Participant(id: userId, name: name, code: countrycode, phone: phone)
+                                    users.append(user)
+                                }
+                            }
+                        }
+                    }
+                }
+                callback(users)
+            }
+        })
+        task.resume()
+    }
+    
     func getEvents(userid:NSString, callback:([Event]) -> ()){
         var events:[Event] = []
-        let urlPath = "http://localhost:3000/api/event/\(userid)"
+        let urlPath = "\(jserver_url)/api/event/\(userid)"
         let url = NSURL(string: urlPath)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -77,7 +112,7 @@ class DataService: NSObject {
     
     func getExpenses(eventid:NSString, callback:([Kharcha]) -> ()){
         var kharchas:[Kharcha] = []
-        let urlPath = "http://localhost:3000/api/expense/\(eventid)"
+        let urlPath = "\(jserver_url)/api/expense/\(eventid)"
         let url = NSURL(string: urlPath)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -100,7 +135,7 @@ class DataService: NSObject {
     
     func getSummaries(eventid:NSString, callback:([Summary]) -> ()){
         var summaries:[Summary] = []
-        let urlPath = "http://localhost:3000/api/summary/\(eventid)"
+        let urlPath = "\(jserver_url)/api/summary/\(eventid)"
         let url = NSURL(string: urlPath)
         let session = NSURLSession.sharedSession()
         let task = session.dataTaskWithURL(url!, completionHandler: {data, response, error -> Void in
@@ -138,7 +173,7 @@ class DataService: NSObject {
     }
     
     func saveExpense(exp:Kharcha, callback: (NSString) -> Void) {
-        let req = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/api/expense/add")!)
+        let req = NSMutableURLRequest(URL: NSURL(string: "\(jserver_url)/api/expense/add")!)
         req.HTTPMethod = "POST"
         req.HTTPBody = exp.getExpenseJSONData()
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -157,7 +192,7 @@ class DataService: NSObject {
     }
     
     func saveUser(name:NSString, code:NSString, phone:NSString, callback: (NSString) -> Void) {
-        let req = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/api/user/add")!)
+        let req = NSMutableURLRequest(URL: NSURL(string: "\(jserver_url)/api/user/add")!)
         req.HTTPMethod = "POST"
         let postString = "{\"name\":\"\(name)\", \"phone\":\"\(phone)\", \"countrycode\":\"\(code)\"}"
         req.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)
@@ -177,14 +212,8 @@ class DataService: NSObject {
     }
     
     func saveEvent(evnt:Event, callback: (NSString) -> Void) {
-        let req = NSMutableURLRequest(URL: NSURL(string: "http://localhost:3000/api/event/add")!)
+        let req = NSMutableURLRequest(URL: NSURL(string: "\(jserver_url)/api/event/add")!)
         req.HTTPMethod = "POST"
-        /*var date = NSDate()
-        let postString = "{\"name\":\"\(evnt.desc)\", \"created\":\"\(date)\", \"participants\":\"\(evnt.getParticipantIdsArray())\"}"
-        
-        println("-------- JSON String for post event is: \(postString) -------------")
-        
-        req.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding)*/
         req.HTTPBody = evnt.getEventJSONData()
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         let postTask = NSURLSession.sharedSession().dataTaskWithRequest(req){

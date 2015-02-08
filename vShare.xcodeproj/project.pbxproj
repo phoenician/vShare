@@ -8,11 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8C118DA71A49B80C0055C580 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C118DA61A49B80C0055C580 /* EventViewController.swift */; };
-		8C1E30D41A65D4BC00814E34 /* EqualSharingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */; };
-		8C1E30D61A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */; };
 		8C30A4181A3C156800F55281 /* ParticipantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C30A4171A3C156700F55281 /* ParticipantService.swift */; };
-		8C30A41A1A3C162A00F55281 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C30A4191A3C162A00F55281 /* Participant.swift */; };
-		8C30A41E1A3F86A600F55281 /* MembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */; };
 		8C3F2C401A54DD7D005E7C9B /* CreateExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F2C3F1A54DD7D005E7C9B /* CreateExpenseViewController.swift */; };
 		8C3F2C421A54DD97005E7C9B /* SelectSharersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F2C411A54DD97005E7C9B /* SelectSharersViewController.swift */; };
 		8C3F2C441A54DDA6005E7C9B /* SelectSpendersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3F2C431A54DDA6005E7C9B /* SelectSpendersViewController.swift */; };
@@ -24,7 +20,6 @@
 		8CE799361A2FF00F00C58875 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CE799351A2FF00F00C58875 /* Images.xcassets */; };
 		8CE799391A2FF00F00C58875 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE799371A2FF00F00C58875 /* LaunchScreen.xib */; };
 		8CE799451A2FF01000C58875 /* vShareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799441A2FF01000C58875 /* vShareTests.swift */; };
-		8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */; };
 		8CE799541A2FF22300C58875 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7994F1A2FF22300C58875 /* AddViewController.swift */; };
 		8CE799551A2FF22300C58875 /* SummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799501A2FF22300C58875 /* SummaryViewController.swift */; };
 		8CE799561A2FF22300C58875 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE799511A2FF22300C58875 /* Event.swift */; };
@@ -33,13 +28,15 @@
 		8CE7995B1A37D1D800C58875 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7995A1A37D1D800C58875 /* LoginViewController.swift */; };
 		8CE9A71B1A38900300755105 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9A71A1A38900300755105 /* DataService.swift */; };
 		8CE9A71D1A3B56C700755105 /* MemberSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */; };
-		F712AB481A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */; };
-		F712AB4E1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB4D1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift */; };
-		F712AB501A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F712AB4F1A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift */; };
-		F77F06871A609E4E00F454D5 /* SpendersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */; };
+		F71CEB101A6F3B79003BAB6B /* CustomInputSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CEB0F1A6F3B79003BAB6B /* CustomInputSelectableCell.swift */; };
+		F71CEB121A6F49AB003BAB6B /* WeightedInputSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F71CEB111A6F49AB003BAB6B /* WeightedInputSelectableCell.swift */; };
+		F776FEE31A82B58E0027C617 /* vShare.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F776FEE11A82B58E0027C617 /* vShare.xcdatamodeld */; };
 		F77F06891A60AF9300F454D5 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F06881A60AF9300F454D5 /* CheckBox.swift */; };
-		F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */; };
 		F77F068D1A61F9D100F454D5 /* CheckBoxDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */; };
+		F7ADF65F1A6F17FA0069B424 /* SimpleSelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADF65E1A6F17FA0069B424 /* SimpleSelectableCell.swift */; };
+		F7ADF6611A6F1A650069B424 /* SimpleSelectableCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7ADF6601A6F1A650069B424 /* SimpleSelectableCellDelegate.swift */; };
+		F7AF55451A82DFCB00CFF37A /* ParticipantCDE.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF55441A82DFCB00CFF37A /* ParticipantCDE.swift */; };
+		F7FC77101A87E87A00358EE5 /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FC770F1A87E87A00358EE5 /* Participant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,11 +51,7 @@
 
 /* Begin PBXFileReference section */
 		8C118DA61A49B80C0055C580 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
-		8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSharingTableViewCell.swift; sourceTree = "<group>"; };
-		8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualSharingTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		8C30A4171A3C156700F55281 /* ParticipantService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantService.swift; sourceTree = "<group>"; };
-		8C30A4191A3C162A00F55281 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
-		8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembersTableViewCell.swift; sourceTree = "<group>"; };
 		8C3F2C3F1A54DD7D005E7C9B /* CreateExpenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExpenseViewController.swift; sourceTree = "<group>"; };
 		8C3F2C411A54DD97005E7C9B /* SelectSharersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSharersViewController.swift; sourceTree = "<group>"; };
 		8C3F2C431A54DDA6005E7C9B /* SelectSpendersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectSpendersViewController.swift; sourceTree = "<group>"; };
@@ -74,7 +67,6 @@
 		8CE7993E1A2FF01000C58875 /* vShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE799431A2FF01000C58875 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CE799441A2FF01000C58875 /* vShareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = vShareTests.swift; sourceTree = "<group>"; };
-		8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KharchaViewController.swift; sourceTree = "<group>"; };
 		8CE7994F1A2FF22300C58875 /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		8CE799501A2FF22300C58875 /* SummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewController.swift; sourceTree = "<group>"; };
 		8CE799511A2FF22300C58875 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -83,13 +75,15 @@
 		8CE7995A1A37D1D800C58875 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		8CE9A71A1A38900300755105 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSearchController.swift; sourceTree = "<group>"; };
-		F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCheckboxTableVIewCellDelegate.swift; sourceTree = "<group>"; };
-		F712AB4D1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedSharingTableViewCell.swift; sourceTree = "<group>"; };
-		F712AB4F1A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedSharingTableViewCellDelegate.swift; sourceTree = "<group>"; };
-		F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpendersTableViewCell.swift; sourceTree = "<group>"; };
+		F71CEB0F1A6F3B79003BAB6B /* CustomInputSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomInputSelectableCell.swift; sourceTree = "<group>"; };
+		F71CEB111A6F49AB003BAB6B /* WeightedInputSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightedInputSelectableCell.swift; sourceTree = "<group>"; };
+		F776FEE21A82B58E0027C617 /* vShare.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = vShare.xcdatamodel; sourceTree = "<group>"; };
 		F77F06881A60AF9300F454D5 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
-		F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelCheckboxTableViewCell.swift; sourceTree = "<group>"; };
 		F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBoxDelegate.swift; sourceTree = "<group>"; };
+		F7ADF65E1A6F17FA0069B424 /* SimpleSelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSelectableCell.swift; sourceTree = "<group>"; };
+		F7ADF6601A6F1A650069B424 /* SimpleSelectableCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleSelectableCellDelegate.swift; sourceTree = "<group>"; };
+		F7AF55441A82DFCB00CFF37A /* ParticipantCDE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipantCDE.swift; sourceTree = "<group>"; };
+		F7FC770F1A87E87A00358EE5 /* Participant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,37 +127,34 @@
 			children = (
 				8CE9A71A1A38900300755105 /* DataService.swift */,
 				8C30A4171A3C156700F55281 /* ParticipantService.swift */,
-				8C30A4191A3C162A00F55281 /* Participant.swift */,
 				8CE7995A1A37D1D800C58875 /* LoginViewController.swift */,
 				8CE799301A2FF00F00C58875 /* ViewController.swift */,
 				8C118DA61A49B80C0055C580 /* EventViewController.swift */,
 				8CE7994F1A2FF22300C58875 /* AddViewController.swift */,
 				8CE9A71C1A3B56C700755105 /* MemberSearchController.swift */,
-				8C30A41D1A3F86A600F55281 /* MembersTableViewCell.swift */,
-				F77F06861A609E4E00F454D5 /* SpendersTableViewCell.swift */,
-				F77F068A1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift */,
-				8C1E30D31A65D4BC00814E34 /* EqualSharingTableViewCell.swift */,
-				F712AB4D1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift */,
-				8C1E30D51A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift */,
-				F712AB4F1A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift */,
-				F712AB471A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift */,
-				F77F06881A60AF9300F454D5 /* CheckBox.swift */,
-				F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */,
-				8CE7994E1A2FF22300C58875 /* KharchaViewController.swift */,
 				8C3F2C3F1A54DD7D005E7C9B /* CreateExpenseViewController.swift */,
-				8C3F2C411A54DD97005E7C9B /* SelectSharersViewController.swift */,
 				8C3F2C431A54DDA6005E7C9B /* SelectSpendersViewController.swift */,
+				8C3F2C411A54DD97005E7C9B /* SelectSharersViewController.swift */,
 				8CC613761A4AA03800504762 /* ExpenseDetailViewController.swift */,
 				8CE799501A2FF22300C58875 /* SummaryViewController.swift */,
+				F7ADF65E1A6F17FA0069B424 /* SimpleSelectableCell.swift */,
+				F7ADF6601A6F1A650069B424 /* SimpleSelectableCellDelegate.swift */,
+				F71CEB0F1A6F3B79003BAB6B /* CustomInputSelectableCell.swift */,
+				F71CEB111A6F49AB003BAB6B /* WeightedInputSelectableCell.swift */,
+				F77F06881A60AF9300F454D5 /* CheckBox.swift */,
+				F77F068C1A61F9D100F454D5 /* CheckBoxDelegate.swift */,
 				8CE799511A2FF22300C58875 /* Event.swift */,
 				8CE799521A2FF22300C58875 /* Kharcha.swift */,
 				8CC613781A51247400504762 /* Summary.swift */,
 				8CE799581A31262F00C58875 /* SwiftyJSON.swift */,
 				8CE7992E1A2FF00F00C58875 /* AppDelegate.swift */,
 				8CE799321A2FF00F00C58875 /* Main.storyboard */,
+				F776FEE11A82B58E0027C617 /* vShare.xcdatamodeld */,
+				F7AF55441A82DFCB00CFF37A /* ParticipantCDE.swift */,
 				8CE799351A2FF00F00C58875 /* Images.xcassets */,
 				8CE799371A2FF00F00C58875 /* LaunchScreen.xib */,
 				8CE7992C1A2FF00F00C58875 /* Supporting Files */,
+				F7FC770F1A87E87A00358EE5 /* Participant.swift */,
 			);
 			path = vShare;
 			sourceTree = "<group>";
@@ -294,29 +285,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C3F2C441A54DDA6005E7C9B /* SelectSpendersViewController.swift in Sources */,
+				F71CEB101A6F3B79003BAB6B /* CustomInputSelectableCell.swift in Sources */,
 				8CE7995B1A37D1D800C58875 /* LoginViewController.swift in Sources */,
-				F77F06871A609E4E00F454D5 /* SpendersTableViewCell.swift in Sources */,
-				F712AB481A62FDBC00DD5B77 /* LabelCheckboxTableVIewCellDelegate.swift in Sources */,
 				F77F068D1A61F9D100F454D5 /* CheckBoxDelegate.swift in Sources */,
-				F712AB4E1A6644E600DD5B77 /* WeightedSharingTableViewCell.swift in Sources */,
-				8C30A41E1A3F86A600F55281 /* MembersTableViewCell.swift in Sources */,
 				8CC613771A4AA03800504762 /* ExpenseDetailViewController.swift in Sources */,
-				8CE799531A2FF22300C58875 /* KharchaViewController.swift in Sources */,
 				8CE799311A2FF00F00C58875 /* ViewController.swift in Sources */,
-				8C1E30D61A65D75B00814E34 /* EqualSharingTableViewCellDelegate.swift in Sources */,
 				8CE799541A2FF22300C58875 /* AddViewController.swift in Sources */,
 				8C118DA71A49B80C0055C580 /* EventViewController.swift in Sources */,
-				8C1E30D41A65D4BC00814E34 /* EqualSharingTableViewCell.swift in Sources */,
-				8C30A41A1A3C162A00F55281 /* Participant.swift in Sources */,
-				F77F068B1A611F5000F454D5 /* LabelCheckboxTableViewCell.swift in Sources */,
-				F712AB501A664A1D00DD5B77 /* WeightedSharingTableViewCellDelegate.swift in Sources */,
 				8CE799591A31262F00C58875 /* SwiftyJSON.swift in Sources */,
+				F776FEE31A82B58E0027C617 /* vShare.xcdatamodeld in Sources */,
+				F7AF55451A82DFCB00CFF37A /* ParticipantCDE.swift in Sources */,
 				8CE7992F1A2FF00F00C58875 /* AppDelegate.swift in Sources */,
 				8CE799571A2FF22300C58875 /* Kharcha.swift in Sources */,
 				8CC613791A51247400504762 /* Summary.swift in Sources */,
 				F77F06891A60AF9300F454D5 /* CheckBox.swift in Sources */,
 				8C3F2C421A54DD97005E7C9B /* SelectSharersViewController.swift in Sources */,
+				F71CEB121A6F49AB003BAB6B /* WeightedInputSelectableCell.swift in Sources */,
+				F7FC77101A87E87A00358EE5 /* Participant.swift in Sources */,
 				8C30A4181A3C156800F55281 /* ParticipantService.swift in Sources */,
+				F7ADF65F1A6F17FA0069B424 /* SimpleSelectableCell.swift in Sources */,
+				F7ADF6611A6F1A650069B424 /* SimpleSelectableCellDelegate.swift in Sources */,
 				8CE799561A2FF22300C58875 /* Event.swift in Sources */,
 				8CE799551A2FF22300C58875 /* SummaryViewController.swift in Sources */,
 				8CE9A71B1A38900300755105 /* DataService.swift in Sources */,
@@ -525,6 +513,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F776FEE11A82B58E0027C617 /* vShare.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F776FEE21A82B58E0027C617 /* vShare.xcdatamodel */,
+			);
+			currentVersion = F776FEE21A82B58E0027C617 /* vShare.xcdatamodel */;
+			path = vShare.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8CE799211A2FF00F00C58875 /* Project object */;
 }

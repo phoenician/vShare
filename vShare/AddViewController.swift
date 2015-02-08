@@ -29,6 +29,10 @@ class AddViewController: UIViewController, UITableViewDelegate, UITableViewDataS
         ds.saveEvent(event){
             eventid in
             println("******* Event id is \(eventid) *******")
+            //save event members to core data
+            for member in newEvent.members{
+                ps.saveParticipantToCoreData(member)
+            }
             dispatch_async(dispatch_get_main_queue()) {
                 self.performSegueWithIdentifier("cancelToViewController", sender: self)
             }

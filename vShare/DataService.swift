@@ -10,8 +10,8 @@ import UIKit
 
 class DataService: NSObject {
     
-    //var jserver_url = "http://jserver-vshare.rhcloud.com"
-    var jserver_url = "http://localhost:8080"
+    var jserver_url = "http://jserver-vshare.rhcloud.com"
+    //var jserver_url = "http://localhost:8080"
     
     func getParticipant(countryCode:NSString, phone:NSString) -> NSString? {
         var id:NSString = ""
